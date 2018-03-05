@@ -46,7 +46,7 @@ Rearranging and squaring both sides results in
 The factorization of this equation can be rearranged into the standard form of an ellipse such that
 %
 \begin{align}
-    \frac{E_x (t)^2}{E_{0x}^2} +\frac{E_y (t)^2}{E_{0y}^2} -2 \frac{E_x E_y)}{(E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
+    \frac{E_x (t)^2}{E_{0x}^2} +\frac{E_y (t)^2}{E_{0y}^2} -2 \frac{E_x E_y}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
 \end{align}
 %
 And is graphed as
@@ -103,7 +103,7 @@ These quantities are known as the Stokes parameters and describe the state of po
 The degree of polarization for an EM wave is the magnitude of the Stokes vector such that
 %
 \begin{align}
-    \alpha =DOP=  \sqrt{S_1^2+S_2^2+S_3^2 }/S_0
+    \alpha =DOP=  \frac{\sqrt{S_1^2+S_2^2+S_3^2 }}{S_0}
 \end{align}
 %
 and ranges from 0 for unpolarized light, to 1 for completely polarized light.  It is possible to show the polarized and unpolarized intensities as individual components
@@ -129,8 +129,8 @@ summed together as
 The degree of polarization for the linear and circular polarization can specifically be quantified as
 %
 \begin{align}
-    DOLP=  \sqrt(S_1^2+s_2^2 )/S_0 \\
-    DOCP=  S_3/S_0
+    DOLP=  \frac{\sqrt{S_1^2+S_2^2 }}{S_0} \\
+    DOCP=  \frac{S_3}{S_0}
 \end{align}
 %
 Note the unpolarized light is represented as
@@ -155,7 +155,7 @@ Note the unpolarized light is represented as
 The Stokes parameters can be graphed on a unit sphere, known as the Poincare sphere.  The sphere plots the radial coordinates describing ellipticity and eccentricy of the polarization ellipse as angles of
 %
 \begin{align}
-    Ellipicity = S_3/(S_0+\sqrt{S_1^2+S_2^2 })
+    Ellipicity = \frac{S_3}{S_0+\sqrt{S_1^2+S_2^2 }}
 \end{align}
 \begin{align}
     Eccentricity= \sqrt{1-Ellipticity^2}
@@ -165,5 +165,5 @@ The ellipticity of the polarization ellipse varies from 0, for linearly polarize
 
 The sphere is only capable of showing the polarized portion of the EM wave.  Prior to normalization, if the EM wave is not fully polarized, the intensity of the polarized beam must be normalized in relation to the total beam intensity.
 
-[Figure 3-Poincare Sphere used to plot the Stokes polarization parameters
+[TODO Figure 3-Poincare Sphere used to plot the Stokes polarization parameters
 The azimuth and zenith angles of the sphere represent the ellipticity and eccentricity of the polarization ellipse.]

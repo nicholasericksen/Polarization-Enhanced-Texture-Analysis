@@ -10,3 +10,14 @@
   \end{minipage}
   \vspace{0.5cm}
 \end{center}
+
+Features for use in support vector classification and regression were extracted from each of the polarization images.  100 samples were extracted from each image to randomly create a training and testing set of data.  Diffuse and specular datasets were processed separately.
+
+Pixel analysis was performed on each sample to determine the S1 and S2 Stokes parameters.  These values were binned into histograms in order to reduce the dimensionality and storage requirements for the data.
+
+Window based GLCM texture analysis was similarly performed on each of the extracted samples.  The dissimilarity, correlation, contrast and entropy were calculated for each GLCM.  The window size for GLCM was manually optimized by testing clustering effects for 5px, 9px, 25px, 55px, 75px, and 95px window sizes.  A window size of 75 pixels was found to be ideal for this experimental design.
+
+Data was exported to csv files for future processing and analysis.
+
+[perhaps here talk about the larger picture of data acquisition -> feature extranction and then analyisis][perhaps show tools used, but def extend this discussion]
+[perhaps show raw histogram images]

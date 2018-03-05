@@ -12,6 +12,77 @@
 \end{center}
 
 \section{Support Vector Machines}
+A Support Vector Machine (SVM) is binary classification tool that is used in machine learning classification and regression problems.  SVMs attempt to separate data by creating a hyper plane that maximizes the distance between each of the classes.  This is often performed in high dimensional spaces, where each sample is described by multiple features.
+
+The python package Sci-Kit Learn provides access to SVM modules and utilities that make it easy to run analysis on datasets.  This packages allows for easily performing machine learning classification and cross validation.  Pipelines are setup for streamlining any preprocessing steps before classification.  This allows for easy modification and testing of various steps in the machine learning process.  A pipeline can be setup in order to allow for easy access to the classifier processing steps during analysis such as,
+%
+\begin{lstlisting}
+from sklearn import svm
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.preprocessing import StandardScaler
+
+clf = OneVsRestClassifier(make_pipeline(
+	StandardScaler(),
+	svm.SVC(kernel='linear', probability=True)))
+
+\end{lstlisting}
+%
+The OneVsRestClassifier was used to extend binary classification methods to multiclass problems, allowing for the use of SVC to classify Red Oak, American Ash and Sugar Maple leaves.  The chosen kernel was linear.  The GridSearch module of sklearn can additionally be utilized to find the most optimal parameters for fitting the data, when free parameters are available.
+
+In Support vector classification, the C and epsilon are tunable parameters.
 
 \subsection{Validation of Classifier Results}
+Cross validation of results is important for reducing the training and testing bias inherent to some datasets.  Learning curves are useful visualization tools for showing how adding more samples to a testing set effects the classification score or ability.
+
+A stratified K-fold validation can be used for ensuring that when sets of training and testing sets are created, the testing sets contain equal amounts of each class.  This is especially useful in unequally distributed sets of data.
+
+In binary classification problems, it is of interest to understand the ability of a classifier to correctly predict the true condition of the sample under inspection.  The possible outcomes of a classification can be found in Figure
+% TODO create ROC boxes
+A true positive result is one that correctly identifies the sample.  False negatives incorrectly predict that a sample was not in its own class.  False positives are when samples are incorrectly identified with another class.  True negatives correctly identify that a sample is not a member of the class being tested against.   These rates can be combined into useful metrics for quantifying a classifiers performance.
+
+The precision of a classifier is a measure of the relevancy of its results.  It is an overall indicator of the false positive rate of a classifier.
+%
+\begin{align}
+    P = \frac{T_p}{T_p + F_p}
+\end{align}
+%
+were $T_p$ is the number of true positives and $F_p$ is the number of false positives that result from testing on the trained classifier.  The recall, also known as the sensitivity, is defined as
+%
+\begin{align}
+    R = \frac{T_p}{T_p + F_p}
+\end{align}
+%
+and tells the amount of relevant samples returned and $F_n$ is the false negative rate.  The f1 score is the harmonic mean between the precision and recall, and is defined as,
+%
+\begin{align}
+    F1 = 2\frac{PR}{P + R}
+\end{align}
+%
+The classification report shows a useful cross validated summary of the precision, recall, f1 score, and support vectors that results from testing different dataset.
+
+All of these features are available in the Sklearn package and an example is shown below.
+%
+\begin{lstlisting}
+from sklearn.model_selection import classification_report, StratifiedKFold
+
+cv = StratifiedKFold(2, shuffle=True)
+
+for train, test in cv.split(X, y):
+    y_test = label_binarize(y[test], classes=[0,1,2, 3])
+
+    fit = clf.fit(X[train], y[train])
+
+    y_pred = fit.predict(X[test])
+
+    print classification_report(y[test], y_pred)
+\end{lstlisting}
+%
+These metrics are often visualized using receiver operating characteristic (ROC) curves for binary classification, and confusion matrices for multiclass problems.  ROC curves show the sensitivity vs the specificity of a binary classifier by plotting the false positive rate versus the true positive rate.  It “is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied” [wiki]. The area under the ROC curve, often denoted AUC, is a measure equivalent to the score of a classifier. It should be noted that for multiclass problems ROC curves can be more optimistic than the individual performance metrics.
+
+ROCs can be extended to multiclass problems, by using a one verse many techniques although a confusion matrix is often used to show the accuracy of a classifier between each of the various classes.  A confusion matrix shows the classifier score against each combination of true value and predicted value.  It therefore shows all outcomes of classification.
+
+It is important to understand the bias and variance of a model when determining its overall effectiveness.  The bias is the average error for different training sets while the variance indicates how sensitive a model is to varying training sets.
+
+Learning curves are a useful visualization tool for understanding the bias and variance of a classification model.  It is useful for determining if a model gets better at classifying samples, as the number of training samples increases.  If the score of a classifier decreases as the number of samples increases, the model has a high amount of bias.  The model performs is not generalized enough to handle more training data.  If as the number of training samples increases, the score increases, the model could benefit from more training data.  If the score remains constant as the training samples increase, the model has low bias.
+
 \section{Linear Regression}

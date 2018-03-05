@@ -1,3 +1,66 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mueller Matrices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Interactions with materials that can create depolarization and model partially polarized input and outputs cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with the equation
+\begin{align}
+    \mathbf{S}_{out} = \mathbf{M}\mathbf{S}_{in}
+\end{align}
+%
+where
+%
+\begin{align}
+    \mathbf{M} =
+    \begin{bmatrix}
+        m_{00} & m_{01} & m_{02} & m_{03} \\
+        m_{10} & m_{11} & m_{12} & m_{13} \\
+        m_{20} & m_{21} & m_{22} & m_{23} \\
+        m_{30} & m_{31} & m_{32} & m_{33} \\
+    \end{bmatrix}
+\end{align}
+%
+is 4x4 Mueller Matrix that describes the diattenuation, depolarization, and retardance of a materials polarization response to an input EM beam.
+
+Diattenuation – the two attenuations of orthogonal polarization states [7]
+
+Retardance – the phase difference between two orthogonal polarization states [8]
+
+Depolarization – a process where polarized light becomes unpolarized [8]
+
+It has been shown that these parameters can be found by determining a samples’ corresponding Mueller Matrix. The scalar parameters are mathematically defined as,
+\begin{align}
+    %\emphasis{Diattenuation} = \frac{\sqrt{m_{01}^2 + m_{02}^2 + m_{03}^2}}{m_{00}} \\
+%    \emphasis{Retardance} = cos^{-1}(\frac{tr(M_{ret})}{2}-1) \\
+%    \emphasis{Depolarization} = 1 - \frac{\sqrt{\sum_{i,j}m_{ij}^2} -m_{00}^2}{\sqrt{3}m_{00}^2}
+\end{align}
+
+For non depolarizing materials, there MM can be converted into Jones matrices.   Examples of Mueller Matrices for common optical elements can be found in [7].  The general form of a linear polarizer with transmission axis at 0 degrees to the $x$ axis is
+%
+\begin{align}
+    \mathbf{M} =
+    \begin{bmatrix}
+        q + r & q - r & 0 & 0 \\
+        q-r & q+r & 0  & 0 \\
+        0 & 0 & 2\sqrt{qr} & 0 \\
+        0 & 0 & 0 & 2\sqrt{qr}
+    \end{bmatrix}
+\end{align}
+%
+where q and r are the attenuation coefficients for the X and Y axis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Mueller Matrix Decomposition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The effects of diattenuation, depolarization and retardance can be found to be represented as subsets of the Muller matrix through its decomposition such that the result is
+\begin{align}
+    \mathbf{M} = m_{00}
+    \begin{bmatrix}
+        1 & \mathbf{D}^T \\
+        \mathbf{P} & \mathbf{m}
+    \end{bmatrix}
+\end{align}
+where $\mathbf{D}^T$ is the diattenutation vector that describes the amount of decrease in overall polarization for each set of orthogonal polarization states. The m matrix represents the retardance of a material.
+
+$\mathbf{P}$ is the polarizance vector, and describes the amount of light that becomes polarized when unpolarized light is incident.  It is analogues to the effect of depolarization.  This vector can be measured by detecting the output Stokes vector of a material when unpolarized light is incident.  This effect is only evident in materials that create polarization.
+
+The derivation of the MM decomposition can be found in the Appendix and was made known by Lu and Chipman and is reproduced in [14].

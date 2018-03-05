@@ -3,3 +3,199 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %need subsub section on Jones
     % need subsub section on Devices
+For the special case of fully polarized EM waves, DOP = 1, the polarization of the beam can be described by a 2x 1 complex vector known as a Jones vector.  The Jones vector relies on the fact that the polarization state of a beam depends only on its relative $X$ and $Y$ intensities, as well as the phase delay between each respective component.
+
+Converting the equation for the electric component of the EM wave into a phasor makes it easy to see the parameters that determine the beams polarization.  A phasor represents a sinusoidal wave with a constant frequency.  The Jones vectors can be formulated from this representation as
+%
+\begin{align}
+    \underline{\hat{E}}(z)=(\vec{i_x} E_{0x} e^{j\delta_x}+\vec{i_y} E_{0y} e^{j\delta_y })e^{-kz}
+\end{align}
+%
+since the polarization depends on the amplitude and phase difference of the $X$ and $Y$ components, the Jones vector is formally written as
+%
+\begin{align}
+    \underline{J} =
+    \begin{bmatrix}
+        E_{0x} e^{j\delta_x} \\
+        E_{0y} e^{j\delta_y }
+    \end{bmatrix}
+\end{align}
+%
+Since only the relative phase differences matter it is common to denote $\delta=\delta_y-\delta_x$.  The vector is also normalized by dividing by its magnitude,
+%
+\begin{align}
+    \underline{J} =
+    \frac{1}{\sqrt{E_{0x}^2 + E_{0y}^2}}
+    \begin{bmatrix}
+        E_{0x} e^{j\delta_x} \\
+        E_{0y} e^{j\delta_y }
+    \end{bmatrix}
+\end{align}
+%
+An angle can then be defined such that
+%
+\begin{align}
+    tan(\psi) = \frac{E_0y}{E_0x}
+\end{align}
+%
+The Jones vector can then be written in terms of a single angle
+%
+\begin{align}
+    \underline{J_{\delta}}(\psi) =
+    \begin{bmatrix}
+        cos(\psi) \\
+        sin(\psi)e^{j\delta}
+    \end{bmatrix}
+\end{align}
+%
+General states of linear polarization are represented as
+%
+\begin{align}
+    \underline{J_0}(\psi) =
+    \begin{bmatrix}
+        cos(\psi) \\
+        sin(\psi)
+    \end{bmatrix}
+\end{align}
+%
+where $\psi$ is any angle in relation to the X axis.  Circular polarization is represented as
+%
+\begin{align}
+    RCP: \underline{J}_{\frac{\pi}{2}} = \frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 \\
+        j
+    \end{bmatrix} \\
+    LCP: \underline{J}_{-\frac{\pi}{2}} = \frac{1}{\sqrt{2}}
+    \begin{bmatrix}
+        1 \\
+        -j
+    \end{bmatrix}
+\end{align}
+%
+\subsubsection{Optical Devices}
+Polarization can be naturally occurring, such as in the case of skylight, or it can be created by passing light through an optical device such as a linear polarizer or a quarter wave plate.  Jones vectors are useful for describing the polarization state of a EM wave, while Jones matrices describe non depolarizing optical devices and the transformation of pure incident polarization states through them.
+
+A linear polarizer is a device that transmits linear polarization states for incident light beams that are aligned with their transmission axis (TA) of the polarizer [14].  For example, if horizontally polarized light is passed through a polarizer with a $TA = 90^{\circ}$, all of the incident light will be extinguished.  In practice all of the light is not completely extinguished and there are often spectral differences to the response of polarizers.
+
+Since linear polarizers block light that is orthogonal to the TA, it can be shown that the general equation for a linear polarizer is such that
+%
+\begin{align}
+    \underline{J}_{in}(\psi + \frac{\pi}{2}) =
+    \begin{pmatrix}
+        cos(\psi + \frac{pi}{2}) \\
+        sin(\psi + \frac{pi}{2})
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        -sin(\psi) \\
+        cos(\psi)
+    \end{pmatrix}
+\end{align}
+%
+and
+\begin{align}
+    \underline{J}_{out} =
+    \begin{pmatrix}
+        0 \\
+        0
+    \end{pmatrix}
+\end{align}
+%
+The general equation for Jones interaction with a linear polarizer is
+%
+\begin{align}
+    P(\psi)\underline{J}_{in} = \underline{J}_{out}
+\end{align}
+\begin{align}
+    \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}
+    \begin{pmatrix}
+        -sin(\psi) \\
+        cos(\psi)
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\
+        0
+    \end{pmatrix}
+\end{align}
+\begin{align}
+    -asin(\psi) + bcos(\psi) = 0 \rightarrow atan(\psi) \\
+    -csin(\psi) = dcos(\psi) = 0 \rightarrow ctan(\psi)
+\end{align}
+%
+When the incident polarization state is aligned with the polarizers TA, it must also be true that the incident beam goes through the device unchanged.  Therefore,
+%
+\begin{align}
+    \underline{J}_{in}(\psi) =
+    \begin{pmatrix}
+        cos(\psi) \\
+        sin(\psi)
+    \end{pmatrix} \\
+    \underline{J}_{out}(\psi) =
+    \begin{pmatrix}
+        cos(\psi) \\
+        sin(\psi)
+    \end{pmatrix}
+\end{align}
+\begin{align}
+    acos(\psi) + bsin(\psi) = cos(\psi) \\
+    ccos(\psi) + dsin(\psi) = sin(\psi)
+\end{align}
+%
+substituting in for previous values of b and d give
+%
+\begin{align}
+    a = \frac{cos(\psi)}{cos(\psi) + tan(\psi)sin(\psi)} = cos^2\psi
+\end{align}
+\begin{align}
+    b = atan(\psi) = sin(\psi)cos(\psi)
+\end{align}
+\begin{align}
+    c = \frac{sin(\psi)}{cos(\psi) + tan(\psi)sin(\psi)} = sin(\psi)cos(\psi)
+\end{align}
+\begin{align}
+    d = ctan(\psi) = sin^2\psi
+\end{align}
+%
+The general form of a linear polarizer with transmission axis angle ? from the X axis is
+%
+\begin{align}
+    P(\psi) =
+    \begin{pmatrix}
+        cos^2\psi & sin(\psi)cos(\psi) \\
+        sin(\psi)cos(\psi) & sin^2\psi
+    \end{pmatrix}
+\end{align}
+%
+The intensity of light emerging from a polarizer is governed by Malus law,
+%
+\begin{align}
+    I = I_0cos^2(\theta_i)
+\end{align}
+%
+where $I$ is the intensity of the exiting beam, $I_0$ is the intensity of the incident beam and $\theta_i$ is the angle between the incident polarization state, and the angle of the polarizer.   For incident unpolarized light the equation becomes $I / I_0 = \frac{1}{2}$.  Therefore, the maximum transmittance for a beam of light through a polarizer is 50%.  This number is significantly lower for polaroid film based polarizers and can cause potential problems with detector sensitivity for low lighting conditions.
+
+Wave plates create a phase delay between the fast and slow axis of incident linearly polarized light.  Its generalized Jones matrix form can be denoted with a relative phase delay $\delta=\delta_y-\delta_x$,
+\begin{align}
+    C(\delta) =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & e^{-j\delta}
+    \end{pmatrix}
+\end{align}
+%
+Two common wave plates are the half wave plate and the quarter wave plate.  These produce a delay of $\pi$ and $\pi/2$ respectively.
+
+The noobelectric python package has a module for dealing with these types of problems and it is easy to do Jones optical calculations for purely polarized light beams.  An example for a linear polarizer combined with a quarter wave plate can be created and various input polarization states into the system as shown below.
+\begin{lstlisting}
+>>> from noobee.jones import j, lp
+>>> j_in = j(1,0)
+>>> lp_1 = lp(0)
+>>> lp_1 * j_in
+matrix([[ 1.],
+        [ 0.]])
+\end{lstlisting}
