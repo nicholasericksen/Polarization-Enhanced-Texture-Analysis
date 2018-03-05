@@ -11,7 +11,7 @@
   \vspace{0.5cm}
 \end{center}
 
-Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low (<.02%) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in [17].
+Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low /(<.02%/) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in [17].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measurement of Stokes Parameters}
@@ -29,6 +29,7 @@ It is shown in [7] that the Stokes parameter of a beam can be generally calculat
         S_3
     \end{bmatrix}
     =
+    S_0
     \begin{bmatrix}
         P_H + P_V \\
         P_H - P_V \\
@@ -49,6 +50,7 @@ For most natural and man made objects the reflections are assumed to contain lit
         S_2
     \end{bmatrix}
     =
+    S_0
     \begin{bmatrix}
         P_H + P_V \\
         P_H - P_V \\
@@ -56,7 +58,7 @@ For most natural and man made objects the reflections are assumed to contain lit
     \end{bmatrix}
 \end{align}
 %
-The linear elements of the Stokes vector can be determined using just a linear polarizer as seen in Figure 11.  By rotating the polarizer to 0, 45 90 and 135 degrees.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $x$ and $y$ components of the electric field previously described.
+The linear elements of the Stokes vector can be determined using just a linear polarizer as seen in Figure 11.  By rotating the polarizer to 0, 45 90 and 135 degrees.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $S$ and $P$ components of the electric field previously described.
 %
 %ßß\begin{center}
 %  \makebox[\textwidth]{\includegraphics[width=8cm]{Sources/Background/Data_Acquisition/exper_setup.png}}
@@ -72,7 +74,7 @@ The intensity measurement is recorded with a detector.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single and Multi-Pixel Detectors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-For centuries the only photo detector available to those in the field of optics, was the human eye.  Many methods were only capable of producing measurements via a null intensity method, where light was extinguished to determine orthogonality between polarization and polarizer transmission axes.  Modern single pixel photo detectors allow for the capturing of intensity, or tone.  There are numerous types of detectors available made with different materials that exhibit different properties when interacting with light.  Silicon is a common substrate.
+For centuries the only photo detector available to those in the field of optics was the human eye.  Many methods were only capable of producing measurements via a null intensity method, where light was extinguished to determine orthogonality between polarization and polarizer transmission axes.  Modern single pixel photo detectors allow for the capturing of intensity or tone.  There are numerous types of detectors available made with different materials that exhibit different properties when interacting with light.  Silicon is a common substrate.
 
 A single pixel is not enough to capture texture.  Multiple measurements need to be made using a single pixel in order to quantify a region of space around the surface, denoted by the units of steradians in the BRDF models.  Multi-pixel detectors with a larger field of view allow for multiple features and texture to be captured in an image.
 
@@ -83,10 +85,10 @@ The individual intensities from each of these filters are combined with the came
 
 Single and multi-pixel devices have been utilized in Polarimetry for different applications.  A camera was utilized for these experiments as it provides information on texture, as well as an ability to distinguish features in each of the spectral color channels.
 
-The intensity values for each RGB channel of an image can easily be extracted using the OpenCV python package.  Note that OpenCV actually holds images in reverse order as BGR.  A typical graph of the quantum efficeny for each wavelength in the visible region for CMOS sensors typically used in consumer cameras, can be found in Figure 14.
+The intensity values for each RGB channel of an image can easily be extracted using the OpenCV python package.  Note that OpenCV actually holds images in reverse order as BGR.  A typical graph of the quantum efficiency for each wavelength in the visible region for CMOS sensors typically used in consumer cameras, can be found in Figure 14.
 % TODO insert bayer filter transmission characteristics
 
-OpenCV, a popular image processing library in Python, stores images as intensities in a multidimensional array representing the blue, green, and red response curves shown above.  It is possible to separate these channels and perform a pseudo spectral analysis.
+OpenCV, a popular image processing library in Python, stores images as intensities in a multidimensional array representing the blue, green, and red response curves shown above.  It is possible to separate these channels and perform a pseudo-spectral analysis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determining Relative Water Content}
