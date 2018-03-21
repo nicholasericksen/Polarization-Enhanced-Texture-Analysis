@@ -4,20 +4,111 @@
 \begin{center}
   \begin{minipage}{0.75\textwidth}
     \begin{small}
-      “The interaction between material bodies can be described either by formuating the action at a distance between the interacting bodies or by separating the interaction process into the production of a field by one system and the action so the field on another system” .
-      \emph{Classical Electricity \& Magnetism. Panofksy, Phillips}\\.
+      “Movement amongst the trees of a forest shows that the enemy is advancing.  The appearance of a number of screens in the midst of this grass means that the enemy wants to make us suspicious”.\\
+      \null\hfill\emph{The Art of War, Sun Tzu}
     \end{small}
   \end{minipage}
   \vspace{0.5cm}
 \end{center}
 
-Features for use in support vector classification and regression were extracted from each of the polarization images.  100 samples were extracted from each image to randomly create a training and testing set of data.  Diffuse and specular datasets were processed separately.
+After acquiring the necessary images for calculation of a leafs' polarizance, features were extracted from the images in each color channel for texture and polarization analysis.  These features were extracted using various Python programming modules. 100 samples were extracted from each image to randomly create a training and testing set of data.  Diffuse and specular datasets were processed separately.
 
-Pixel analysis was performed on each sample to determine the S1 and S2 Stokes parameters.  These values were binned into histograms in order to reduce the dimensionality and storage requirements for the data.
+In order to create testing and training data, samples were extracted from each polarization image /(H, V, P and M/) using code found in Figure.  Each sample was extracted into three different color channels; red, green and blue.
+\begin{lstlisting}
+    def extract_bgr_samples(filename, size, count):
+        """
+        Extract random samples from b, g, r image channels.
+
+        Args:
+            filename (str): Location to the image filename.
+            size (int): The length/width of the square sample.
+            count (int): The number of samples to generate.
+        Returns:
+            tuple: Random samples from each color channel.
+        """
+        img = cv2.imread(filename, 1)
+        blue_channel, green_channel, red_channel = cv2.split(img)
+
+        b_samples = image.extract_patches_2d(blue_channel, (size, size), count, 1)
+        g_samples = image.extract_patches_2d(green_channel, (size, size), count, 1)
+        r_samples = image.extract_patches_2d(red_channel, (size, size), count, 1)
+
+        return b_samples, g_samples, r_samples
+\end{lstlisting}
+
+Each of the samples were processed using pixel based analysis, to calculate their Stokes vector as well as various GLCM metrics.  Pixels that were never illuminated were filtered out of the polarization analysis since they artificially inflated the zero mean of the produced histograms.  Polarization is not the same as light intensity and polarization can not be determined without some illumination on the target.  The Stokes vector was therefore calculated the code in Figure where P1 and P2 represent orthogonal flux measurements through a linear polarizer.
+%
+\begin{lstlisting}
+    def calculate_stokes((P1, P2)):
+        """
+        Calulate the Stokes parameter for orthogonal images.
+
+        Args:
+            P1 (array): First polarization image.
+            P2 (array): Orthogonal polarization image.
+        Returns:
+            array: Stokes parameters.
+        """
+        P1 = P1.astype(np.float32)
+        P2 = P2.astype(np.float32)
+
+        P1[np.abs(P1) < 1] = 0
+        P2[np.abs(P2) < 1] = 0
+
+        S = (P1 - P2) / (P1 + P2)
+
+        # These represent values that have not been illuminated by the source
+        # ie they are the product of masking and shadowing.
+        S[~np.isfinite(S)] = 0
+
+        return S
+\end{lstlisting}
+%
+These values were binned into histograms in order to reduce the dimensionality and storage requirements for the data.  These histograms were plotted using the following code in Figure.
+%
+\begin{lstlisting}
+    S1 = calculate_stokes((H, V))
+    S2 = calculate_stokes((P, M))
+
+    plt.title('Polarizance Paramaters')
+
+    plt.hist(S1.ravel(), histtype='barstacked', bins=256)
+    plt.hist(S2.ravel(), histtype='barstacked', bins=256)
+
+    plt.show()
+\end{lstlisting}
 
 Window-based GLCM texture analysis was similarly performed on each of the extracted samples.  The dissimilarity, correlation, contrast and entropy were calculated for each GLCM.  The window size for GLCM was manually optimized by testing clustering effects for 5px, 9px, 25px, 55px, 75px, and 95px window sizes.  A window size of 75 pixels was found to be ideal for this experimental design.
 
-Data was exported to csv files for future processing and analysis.
+In addition to performing a polarization based analysis on each color channel of the extracted samples, a GLCM texture analysis was also performed.  The dissimilarity, contrast, correlation and energy were calculated for each sample window.  The following code was used for these calculations,
+\begin{lstlisting}
+    def extract_texture(samples):
+        """
+        Generate GLCM based texture features for a given color channel.
+
+        Args:
+            samples (array): Array containing each image sample.  Each sample is a
+                matrix of pixel intensities for a single color channel.
+        Returns:
+            array: Texture features extracted for an individual color channel.
+        """
+        texture = []
+        for sample in samples:
+            try:
+                # Calculate texture features for a given sample
+                relationships = [0, np.pi/4, np.pi/2, 3*np.pi/4]
+                glcm = greycomatrix(sample, [1], relationships, 256, symmetric=True, normed=True)
+                metrics = ['dissimilarity', 'contrast', 'correlation', 'energy']
+                diss, contrast, corr, energy = [greycoprops(glcm, metric)[0, 0] for metric in metrics]
+
+                texture.append([diss, contrast, corr, energy])
+            except ValueError:
+                print "Error in extracting the texture features"
+
+        return np.array(texture)
+\end{lstlisting}
+
+Data was exported to csv files for future processing and analysis in Support Vector Machine classification and linear regression.
 
 [perhaps here talk about the larger picture of data acquisition -> feature extranction and then analyisis][perhaps show tools used, but def extend this discussion]
 [perhaps show raw histogram images]

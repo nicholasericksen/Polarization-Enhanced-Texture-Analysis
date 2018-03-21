@@ -1,7 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Grey Level Co-Occurence Matrix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A Grey Level Co-Occurrence Matrix (GLCM) is able to quantify the spatial frequency distribution of grey level pixel intensity pairs. The GLCM matrix is formed by determining the frequency of grey level value pixel pairs for a given image.  A relationship is set a priori to determine the direction for grey level comparison.  This relationship is an angle relating a pixel to its neighbor, and is chosen in multiples of either 0 or 45 degrees.  Common GLCM spatial relationships are $0, \pi/4, 3\pi/4, and \pi/2$ radians. In order to quantify a texture in a rotationally consistent fashion, all four relationships are usually calculated and averaged together in determining the overall GLCM matrix.  The GLCM has a size of $N x N$ where $N$ is the discrete quantized levels.
+A Grey Level Co-Occurrence Matrix (GLCM) is able to quantify the spatial frequency distribution of grey level pixel intensity pairs. The GLCM matrix is formed by determining the frequency of grey level value pixel pairs for a given image.  A relationship is set a priori to determine the direction for grey level comparison.  This relationship is an angle relating a pixel to its neighbor, and is chosen in multiples of either 0 or 45 degrees.  Common GLCM spatial relationships are $0, \pi/4, 3\pi/4, and \pi/2$ radians.
+%
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.75]{/Sources/Background/Texture_and_Tone/glcm-relationships-no-title.png}}
+    \end{center}
+    \caption{Defining GLCM Relationships}
+    \label{fig:texture}
+\end{figure}
+%
+In order to quantify a texture in a rotationally consistent fashion, all four relationships are usually calculated and averaged together in determining the overall GLCM matrix.  The GLCM has a size of $N x N$ where $N$ is the discrete quantized levels.
 
 A single relationship Co-Occurence matrix is formulated such that,
 %
@@ -16,10 +26,16 @@ A single relationship Co-Occurence matrix is formulated such that,
 where $I(x,y)$ is an $n x m$ image and $\triangle x,\triangle y$ represent the predefined offset of the grey level pixel neighbor intensity relationship (i,j).
 Being defined as referencing one pixel to its neighbor to the right (0 degrees) the GLCM matrix is formulated as such,
 %
-\begin{center}
-  \makebox[\textwidth]{\includegraphics[width=8cm]{/Sources/Background/Texture_and_Tone/glcm.png}}
-\end{center}
-% [TODO explain this example in more detail]
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.75]{/Sources/Background/Texture_and_Tone/glcm.png}}
+    \end{center}
+    \caption{Converting a Binary Image to a GLCM Matrix}
+    \label{fig:texture}
+\end{figure}
+%[CHECK]
+The example in Figure 2.6 shows the simplest case of a binary image, or an image that only contains white and black pixels.  These pixels values captured by a camera are then converted into there corresponding digital numbers, in this case either zero or one.  With the spatial relationship being defined as one to the right, the GLCM matrix is then formed.
+
 Non symmetrical GLCMs should be symmetrized by adding each to its transpose,
 %
 \begin{align}

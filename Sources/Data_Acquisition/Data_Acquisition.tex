@@ -4,19 +4,19 @@
 \begin{center}
   \begin{minipage}{0.75\textwidth}
     \begin{small}
-      “The interaction between material bodies can be described either by formuating the action at a distance between the interacting bodies or by separating the interaction process into the production of a field by one system and the action so the field on another system” .
-      \emph{Classical Electricity \& Magnetism. Panofksy, Phillips}\\.
+      “I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived”.\\
+      \null\hfill\emph{Walden. Henry David Thoreau}
     \end{small}
   \end{minipage}
   \vspace{0.5cm}
 \end{center}
 
-Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low /(<.02%/) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in [17].
+Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low /(<.02%/) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise [TODO explain how this would be handled outside a lab setting].  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in [17].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measurement of Stokes Parameters}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Stokes parameters for a beam of light can be determined by measuring the flux values of orthogonal polarization states.  A variety of optical setups can be required to measure all of the Stokes parameters.  A Classical polarimeter is one that utilizes a rotating quarter wave plate in front of a linear polarizer to generate a sine wave from the intensities recorded by a detector.  A Fourier analysis is then performed on this signal to determine all of the Stokes parameters.
+The Stokes parameters for a beam of light can be determined by measuring the flux values of orthogonal polarization states.  A variety of optical setups can be required to measure all of the Stokes parameters.  A Classical polarimeter is one that utilizes a rotating quarter wave plate in front of a linear polarizer to sample a sine wave from the intensities recorded by a detector.  A Fourier analysis is then performed on this signal to determine all of the Stokes parameters.
 
 It is shown in [7] that the Stokes parameter of a beam can be generally calculated as
 %
@@ -58,7 +58,7 @@ For most natural and man made objects the reflections are assumed to contain lit
     \end{bmatrix}
 \end{align}
 %
-The linear elements of the Stokes vector can be determined using just a linear polarizer as seen in Figure 11.  By rotating the polarizer to 0, 45 90 and 135 degrees.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $S$ and $P$ components of the electric field previously described.
+The linear elements of the Stokes vector can be determined using just a linear polarizer and rotating the polarizer to 0, 45 90 and 135 degrees as seen in Figure xx.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $S$ and $P$ components of the electric field previously described.
 %
 %ßß\begin{center}
 %  \makebox[\textwidth]{\includegraphics[width=8cm]{Sources/Background/Data_Acquisition/exper_setup.png}}
@@ -70,6 +70,7 @@ The linear polarizer was calibrated using a polarizer of known axis orientation.
 When unpolarized light is incident, the Stokes vector for the exiting beam is identical to the polarizance of the Mueller matrix for the material and can be useful for classification of materials.
 
 The intensity measurement is recorded with a detector.
+%[TODO show work on S_out=MS_in]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single and Multi-Pixel Detectors}
@@ -114,6 +115,26 @@ The relative water content can then be calculated as a percentage,
     RWC = \frac{FW - DW}{TW - DW} x 100%
 \end{align}
 %
-Note that the scale used for weighing needs to have at least 4 decimal places to ensure the accuracy of the measurements. Drying times and artificial hydration times can vary with species and oven temperature.
-
+Note that the scale used for weighing needs to have at least 4 decimal places to ensure the accuracy of the measurements. Drying times and artificial hydration times can vary with species and oven temperature. An example of measurements can be found in Table 4.1.  All acquired RWC data can be found in the Appendix.
+%
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{lllll}
+    \toprule
+    \textbf{Leaf} & \textbf{TFW} & \textbf{TW} & \textbf{DW} & \textbf{RWC} \\
+    \midrule
+      \texttt{11} & 2.7931 & 2.8335 & 0.2472 & 98.4379 \\
+      \texttt{12} & 2.0883 & 2.1184 & 0.1876 & 98.4411 \\
+      \texttt{21} & 1.7804 & 1.8051 & 0.1376 & 98.5187 \\
+      \texttt{22} & 1.7655 & 1.8022 & 0.1404 & 97.7916 \\
+      \texttt{31} & 2.1874 & 2.2359 & 0.1656 & 97.6573 \\
+      \texttt{32} & 2.2511 & 2.3108 & 0.1687 & 97.2130 \\
+    \bottomrule
+  \end{tabular}
+  \caption{%
+    Measurements for RWC Experiment
+  }
+  \label{tab:Packages}
+\end{table}
+%
 [add picture here showing the process ?]

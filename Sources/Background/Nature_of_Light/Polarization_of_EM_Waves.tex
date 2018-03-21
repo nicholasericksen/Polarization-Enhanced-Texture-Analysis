@@ -50,18 +50,24 @@ The factorization of this equation can be rearranged into the standard form of a
 \end{align}
 %
 And is graphed as
-[TODO replace this image with one that has both parameters]
-[Figure 2-Polarization Ellipse. Reproduced here without permission.
-where psi and chi represent the ellipticity and eccentricity of the ellipse.]
+%[TODO replace this image with one that has both parameters]
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.5]{/Sources/Background/Nature_of_Light/polarization-ellipse-binary.png}}
+    \end{center}
+    \caption{Polarization Ellipse}
+    \label{fig:polarization}
+\end{figure}
+%
 
-Due to the nature of light, it is not possible to measure the polarization ellipse at any instant in time directly with optical sensors.  Taking the time average of the ellipse results in quantities that can measured by detectors in order to quantify the polarization state of an EM wave.  It is therefore necessary to derive parameters from the ellipse that can be measured.
+Due to the restraints of modern optical sensors, it is not possible to directly measure the polarization ellipse, for a light beam, at any instant in time.  Taking the time average of the ellipse results in quantities that can measured by detectors in order to quantify the polarization state of an EM wave.  It is therefore necessary to derive parameters from the ellipse that can be measured.
 Starting from the equation for the polarization ellipse, taking the time average of the E field results in
 %
 \begin{align}
     \frac{E_x (t)^2}{E_{0x}^2} + \frac{E_y (t)^2}{E_{0y}^2} - \frac{2 E_x (t) E_y (t)}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
 \end{align}
 %
-the time averages are calculated as
+the time averages are calculated as [TODO Fix this equation]
 %
 \begin{align}
 <E_x (t)^2> =   lim_{T\to\infty}\int{0}^{2\pi} E_{0x} cos(\tau)  d\tau=\frac{1}{2} E_{0x}^2
@@ -163,8 +169,14 @@ The Stokes parameters can be graphed on a unit sphere, known as the Poincare sph
 \end{align}
 %
 The ellipticity of the polarization ellipse varies from 0, for linearly polarized light, to 1 for purely circular polarization [7].
-
-The sphere is only capable of showing the polarized portion of the EM wave.  Prior to normalization, if the EM wave is not fully polarized, the intensity of the polarized beam must be normalized in relation to the total beam intensity.
-
-[TODO Figure 3-Poincare Sphere used to plot the Stokes polarization parameters
-The azimuth and zenith angles of the sphere represent the ellipticity and eccentricity of the polarization ellipse.]
+%
+For	graphical representation, Stokes vectors can be plotted on a 3-dimensional sphere known as the Poincare sphere. The sphere is only capable of showing the polarized portion of the EM wave.  Prior to normalization, if the EM wave is not fully polarized, the intensity of the polarized beam must be normalized in relation to the total beam intensity.
+%
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.6]{/Sources/Background/Nature_of_Light/POINCARE-binary.png}}
+    \end{center}
+    \caption{Poincare Sphere}
+    \label{fig:polarization}
+\end{figure}
+%[CHECK]

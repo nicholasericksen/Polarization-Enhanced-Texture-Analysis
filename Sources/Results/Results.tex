@@ -1,7 +1,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Results}
 %
-
+\begin{center}
+  \begin{minipage}{0.75\textwidth}
+    \begin{small}
+      “I hear and I forget. I see and I remember. I do and I understand”\\
+      \null\hfill\emph{Confucius}
+    \end{small}
+  \end{minipage}
+  \vspace{0.5cm}
+\end{center}
 \section{Optimization of Parameters}
 The histograms that resulted from measuring the S1 and S2 polarization showed evidence of masking and shadowing effects due to macro level surface features.  This caused some pixels to never be illuminated and have a large spike at zero.
 
@@ -403,11 +411,28 @@ Principal component analysis was utilized to extract the most useful features fo
 %
 \begin{figure}[!htb]
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_3/linear-regression.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/rwc-regression.png}}
     \end{center}
-    \caption{SVR for RWC and 1st principal component}
+    \caption{Linear Regression for RWC and 1st principal component}
     \label{fig:polarization}
 \end{figure}
+%
+%
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Metric} & \textbf{Score}\\
+    \midrule
+      \texttt{r2} & 0.376 \\
+      \texttt{RMS} & 0.758 \\
+    \bottomrule
+  \end{tabular}
+  \caption{%
+    Scores for Regression in the Specular Direction
+  }
+  \label{tab:Packages}
+\end{table}
 %
 Analyzing the specular polarization and extracting texture features showed good results [TODO why? what exactly are results].  The classifier was cross validated using K fold validation with 10 folds.  The performance of the classifier is summarized in Table.
 %todo add table and explain each attribute

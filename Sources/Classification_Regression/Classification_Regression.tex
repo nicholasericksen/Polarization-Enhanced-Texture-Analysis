@@ -4,8 +4,8 @@
 \begin{center}
   \begin{minipage}{0.75\textwidth}
     \begin{small}
-      “The interaction between material bodies can be described either by formuating the action at a distance between the interacting bodies or by separating the interaction process into the production of a field by one system and the action so the field on another system” .
-      \emph{Classical Electricity \& Magnetism. Panofksy, Phillips}\\.
+      “...in the whole of nature there is something which makes all things, so too is it in the soul.”\\
+      \null\hfill\emph{On the Soul, The Philosopher}
     \end{small}
   \end{minipage}
   \vspace{0.5cm}
@@ -87,3 +87,86 @@ It is important to understand the bias and variance of a model when determining 
 Learning curves are a useful visualization tool for understanding the bias and variance of a classification model.  It is useful for determining if a model gets better at classifying samples, as the number of training samples increases.  If the score of a classifier decreases as the number of samples increases, the model has a high amount of bias.  The model performance is not generalized enough to handle more training data.  If, as the number of training samples increases, the score increases, the model could benefit from more training data.  If the score remains constant as the training samples increase, the model has low bias.
 
 \section{Linear Regression}
+A linear regression is a simple approach to supervised learning that has long been in use in the field of statistical learning.  It provides the ability to predict a quantitative response $Y$, given a predictor variable $X$.  The assumption when using this technique is that the relationship between these two variables is linear.  In general the form of a Simple Linear Regression is
+%
+\begin{align}
+    Y = \beta_0 + \beta_1 X
+\end{align}
+%
+where $\beta_0$ and $\beta_1$ are parameters that are calculated using a set of training data.  Once trained, this model can predict future output values for a given input.  When given a set of observations $\beta_0$ and $\beta_1$ are set in order to have a closeness between the predicted line and the actual observed data.  A common measure of this closeness is the least squares error.
+
+The residual, $e$, for a given set of observations and predications is calculated
+%
+\begin{align}
+    e_i = y_i - \hat{y_i}
+\end{align}
+%
+These residuals can be used to calculate the Residual Sum of Squares \(RSS\), or the amount of variation left unexplained after performing the regression.  It is
+\begin{align}
+    RSS = {e_1}^2 + {e_2}^2 + \cdots\ + {e_n}^2
+\end{align}
+where $n$ is the number of observations in a dataset.
+
+The Total Sum of Squares is the measure of how much variability exists within the data before the regression has been performed.  It is defined as
+\begin{align}
+    TSS = \sum_{i=0}^n (y_i - \bar{y})^2
+\end{align}
+where $\bar{y}$ is the mean.  Using the $RSS$ and $TSS$ allows for determining the accuracy within the model by calculating the $R^2$.  The $R^2$ is the "proportion of variability in $Y$ that can be explained by $X$". It is defined as
+\begin{align}
+    R^2 = \frac{TSS - RSS}{TSS} = 1 - \frac{RSS}{TSS}
+\end{align}
+
+For a given application it is difficult to determine what a 'good' $R^2$ score is, although it has been noted that in biological applications there can be a great deal of unexplained variance, sometimes even less than 0.1 [34].  In these experiments a linear regression was utilized to correlate the relative water content of the Devils Ivy plant leaves, with the first principal component derived from texture and polarization characteristics.  $R^2$ was used to gauge the accuracy of the results.
+
+\subsection{Principal Component Analysis}
+When a dataset has a large number of features, it becomes difficult to visualize these features against a given model.  Principal Component Analysis (PCA) allows for reducing the dimensionality of data by combining variables that are highly correlated. By performing this process, it becomes possible to observe only the features that contain as much information as possible.  For the dataset utilized in these experiments the features were more than a few dozen in total so reducing the dimensionality was important when visually interpreting the results. The Scikit-learn Python module has a helper utility to provide this reduction in dimensionality.  The code used for performing the linear regression and plotting the first principal component versus the relative water content can be found in Figure.
+\begin{lstlisting}
+    from __future__ import division
+    import numpy as np
+    from sklearn.model_selection import train_test_split, cross_val_score
+    from sklearn import linear_model
+    from sklearn.decomposition import PCA as sklearnPCA
+    import matplotlib.pyplot as plt
+    from sklearn.preprocessing import normalize
+    from sklearn.metrics import r2_score, explained_variance_score, mean_squared_error
+    from sklearn.preprocessing import FunctionTransformer
+    from sklearn.preprocessing import PolynomialFeatures
+
+    transformer = FunctionTransformer(np.log1p)
+
+    data = np.genfromtxt('data.csv', delimiter=',')
+    X = data[:,1:]
+    X = normalize(X, axis=1)
+    X = transformer.transform(X)
+    poly = PolynomialFeatures(degree=1)
+    X = poly.fit_transform(X)
+
+    y = data[:,0]
+
+    pca = sklearnPCA(n_components=1)
+    X = pca.fit_transform(X)
+
+    print X
+    mean = np.mean(X)
+    std = np.std(X)
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
+    regr = linear_model.LinearRegression()
+    regr.fit(X, y)
+
+    y_pred = regr.predict(X)
+
+    print "r2: ", r2_score(y, y_pred, multioutput='variance_weighted')
+    print "explained_variance_score: ", explained_variance_score(y, y_pred)
+    print "root mean squared: ", mean_squared_error(y, y_pred)
+    scores = cross_val_score(regr, X, y, cv=10)
+    print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+
+    plt.title('Linear Regression For Relative Water Content')
+    plt.xlabel('First Principal Component')
+    plt.ylabel('Relative Water Content')
+    plt.scatter(X[:,0], y)
+    plt.plot(X[:,0].reshape(-1, 1), y_pred)
+
+    plt.show()
+\end{lstlisting}
