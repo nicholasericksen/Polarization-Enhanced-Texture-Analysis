@@ -6,36 +6,37 @@
 \contentsline {figure}{\numberline {\relax 2.1}{\ignorespaces Electromagnetic Spectrum - Partial\relax }}{3}{figure.caption.4}
 \contentsline {figure}{\numberline {\relax 2.2}{\ignorespaces Polarization Ellipse\relax }}{5}{figure.caption.5}
 \contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces Poincare Sphere\relax }}{8}{figure.caption.6}
-\contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces Various Types of Photon Interactions\relax }}{14}{figure.caption.7}
-\contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces Diffuse and Specular Scattering\relax }}{15}{figure.caption.8}
-\contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces Defining GLCM Relationships\relax }}{16}{figure.caption.9}
-\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Converting a Binary Image to a GLCM Matrix\relax }}{16}{figure.caption.10}
+\contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces Various Types of Photon Interactions\relax }}{15}{figure.caption.7}
+\contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces Diffuse and Specular Scattering\relax }}{16}{figure.caption.8}
+\contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces Defining GLCM Relationships\relax }}{17}{figure.caption.9}
+\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Converting a Binary Image to a GLCM Matrix\relax }}{17}{figure.caption.10}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces Specular Experimental Setup\relax }}{26}{figure.caption.12}
 \contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces Diffuse Experimental Setup\relax }}{26}{figure.caption.13}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Bayer Filter Pattern\relax }}{30}{figure.caption.14}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {\relax 7.1}{\ignorespaces From left to right: Red Oak, American Ash, and Sugar Maple through H polarization filter in the Specular Direction.\relax }}{44}{figure.caption.15}
-\contentsline {figure}{\numberline {\relax 7.2}{\ignorespaces All plants specular observed direction for each RGB channelization 0 week for S1\relax }}{44}{figure.caption.16}
-\contentsline {figure}{\numberline {\relax 7.3}{\ignorespaces All plants RGB channels observed from the specular direction 0 week for S2\relax }}{45}{figure.caption.17}
-\contentsline {figure}{\numberline {\relax 7.4}{\ignorespaces V filter GLCM dissimilarity and correlation for all species in the specular direction week 0\relax }}{46}{figure.caption.18}
-\contentsline {figure}{\numberline {\relax 7.5}{\ignorespaces From left to right: Red Oak Freshly Removed and After One Week\relax }}{46}{figure.caption.19}
-\contentsline {figure}{\numberline {\relax 7.6}{\ignorespaces Red Oak 0 weeks and 1 week observed in the specular direction for S1\relax }}{47}{figure.caption.20}
-\contentsline {figure}{\numberline {\relax 7.7}{\ignorespaces Red oak 0 weeks and 1 week observed in the specular direction for S2\relax }}{48}{figure.caption.21}
-\contentsline {figure}{\numberline {\relax 7.8}{\ignorespaces P filter GLCM dissimilarity and correlation in specular direction for 0 and 1 week.\relax }}{48}{figure.caption.22}
-\contentsline {figure}{\numberline {\relax 7.9}{\ignorespaces Confusion Matrix for All Species observed in the specular direction.\relax }}{49}{figure.caption.23}
-\contentsline {figure}{\numberline {\relax 7.10}{\ignorespaces Learning curve for leaves observed in the specular direction.\relax }}{50}{figure.caption.24}
-\contentsline {figure}{\numberline {\relax 7.11}{\ignorespaces From left to right: Red Oak, American Ash, and Sugar Maple through H polarization filter in the Diffuse Direction.\relax }}{51}{figure.caption.28}
-\contentsline {figure}{\numberline {\relax 7.12}{\ignorespaces All species, for the diffuse angle of observation 0 week for S1.\relax }}{51}{figure.caption.29}
-\contentsline {figure}{\numberline {\relax 7.13}{\ignorespaces Polarization for all species in the diffuse direction of observation for S2.\relax }}{52}{figure.caption.30}
-\contentsline {figure}{\numberline {\relax 7.14}{\ignorespaces V filter GLCM dissimilarity and correlation for all species in diffuse direction 0 weeks.\relax }}{53}{figure.caption.31}
-\contentsline {figure}{\numberline {\relax 7.15}{\ignorespaces From left to right: Red Oak Freshly Removed and After One Week\relax }}{53}{figure.caption.32}
-\contentsline {figure}{\numberline {\relax 7.16}{\ignorespaces Red Oak in the diffuse direction for S1\relax }}{54}{figure.caption.33}
-\contentsline {figure}{\numberline {\relax 7.17}{\ignorespaces Red Oak in the diffuse direction for S2\relax }}{54}{figure.caption.34}
-\contentsline {figure}{\numberline {\relax 7.18}{\ignorespaces P filter GLCM dissimilarity and contrast in diffuse direction for red oak 0 week vs 1 week\relax }}{55}{figure.caption.35}
-\contentsline {figure}{\numberline {\relax 7.19}{\ignorespaces Confusion matrix for all species observed in the diffuse direction.\relax }}{56}{figure.caption.36}
-\contentsline {figure}{\numberline {\relax 7.20}{\ignorespaces Learning curve for All species observed in the diffuse direction\relax }}{57}{figure.caption.37}
-\contentsline {figure}{\numberline {\relax 7.21}{\ignorespaces Linear Regression for RWC and 1st principal component\relax }}{58}{figure.caption.41}
+\contentsline {figure}{\numberline {\relax 7.1}{\ignorespaces From left to right: Red Oak, American Ash, and Sugar Maple through H polarization filter in the Specular Direction.\relax }}{44}{figure.caption.16}
+\contentsline {figure}{\numberline {\relax 7.2}{\ignorespaces All plants specular observed direction for each RGB channelization 0 week for S1\relax }}{44}{figure.caption.17}
+\contentsline {figure}{\numberline {\relax 7.3}{\ignorespaces All plants RGB channels observed from the specular direction 0 week for S2\relax }}{45}{figure.caption.18}
+\contentsline {figure}{\numberline {\relax 7.4}{\ignorespaces V filter GLCM dissimilarity and correlation for all species in the specular direction week 0\relax }}{46}{figure.caption.19}
+\contentsline {figure}{\numberline {\relax 7.5}{\ignorespaces From left to right: Red Oak Freshly Removed and After One Week\relax }}{46}{figure.caption.20}
+\contentsline {figure}{\numberline {\relax 7.6}{\ignorespaces Red Oak 0 weeks and 1 week observed in the specular direction for S1\relax }}{47}{figure.caption.21}
+\contentsline {figure}{\numberline {\relax 7.7}{\ignorespaces Red oak 0 weeks and 1 week observed in the specular direction for S2\relax }}{48}{figure.caption.22}
+\contentsline {figure}{\numberline {\relax 7.8}{\ignorespaces P filter GLCM dissimilarity and correlation in specular direction for 0 and 1 week.\relax }}{48}{figure.caption.23}
+\contentsline {figure}{\numberline {\relax 7.9}{\ignorespaces Confusion Matrix for All Species observed in the specular direction.\relax }}{49}{figure.caption.24}
+\contentsline {figure}{\numberline {\relax 7.10}{\ignorespaces Learning curve for leaves observed in the specular direction.\relax }}{50}{figure.caption.25}
+\contentsline {figure}{\numberline {\relax 7.11}{\ignorespaces From left to right: Red Oak, American Ash, and Sugar Maple through H polarization filter in the Diffuse Direction.\relax }}{51}{figure.caption.29}
+\contentsline {figure}{\numberline {\relax 7.12}{\ignorespaces All species, for the diffuse angle of observation 0 week for S1.\relax }}{51}{figure.caption.30}
+\contentsline {figure}{\numberline {\relax 7.13}{\ignorespaces Polarization for all species in the diffuse direction of observation for S2.\relax }}{52}{figure.caption.31}
+\contentsline {figure}{\numberline {\relax 7.14}{\ignorespaces V filter GLCM dissimilarity and correlation for all species in diffuse direction 0 weeks.\relax }}{53}{figure.caption.32}
+\contentsline {figure}{\numberline {\relax 7.15}{\ignorespaces From left to right: Red Oak Freshly Removed and After One Week\relax }}{53}{figure.caption.33}
+\contentsline {figure}{\numberline {\relax 7.16}{\ignorespaces Red Oak in the diffuse direction for S1\relax }}{54}{figure.caption.34}
+\contentsline {figure}{\numberline {\relax 7.17}{\ignorespaces Red Oak in the diffuse direction for S2\relax }}{54}{figure.caption.35}
+\contentsline {figure}{\numberline {\relax 7.18}{\ignorespaces P filter GLCM dissimilarity and contrast in diffuse direction for red oak 0 week vs 1 week\relax }}{55}{figure.caption.36}
+\contentsline {figure}{\numberline {\relax 7.19}{\ignorespaces Confusion matrix for all species observed in the diffuse direction.\relax }}{56}{figure.caption.37}
+\contentsline {figure}{\numberline {\relax 7.20}{\ignorespaces Learning curve for All species observed in the diffuse direction\relax }}{57}{figure.caption.38}
+\contentsline {figure}{\numberline {\relax 7.21}{\ignorespaces Linear Regression for RWC and 1st principal component\relax }}{58}{figure.caption.42}
 \addvspace {10\p@ }

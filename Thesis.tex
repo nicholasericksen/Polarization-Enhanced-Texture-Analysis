@@ -62,6 +62,7 @@
   maxcitenames = 99,
   sortcites    = true,
   style        = numeric,
+  sorting      = none
   ]{biblatex}
 
 \input{bibliography-mimosis}
@@ -81,9 +82,38 @@
 
 \renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
 
-\newacronym[description={Principal component analysis}]{PCA}{PCA}{principal component analysis}
-\newacronym                                            {SNF}{SNF}{Smith normal form}
-\newacronym[description={Topological data analysis}]   {TDA}{TDA}{topological data analysis}
+\newacronym     {PCA}{PCA}{principal component analysis}
+\newacronym     {GOES}{GOES}{Geostationary Operational Environmental Satellites}
+\newacronym     {NEX}{NEX}{NASA Earth Exchange}
+\newacronym     {NAIP}{NAIP}{National Agricultural Imagery Program}
+\newacronym     {VI}{VI}{Vegetation indices}
+\newacronym     {COTS}{COTS}{Consumer off the shelf}
+\newacronym     {EM}{EM}{electromagnetic}
+\newacronym     {DOP}{DOP}{Degree of polarization}
+\newacronym     {DOLP}{DOLP}{Degree of linear polarization}
+\newacronym     {DOCP}{DOCP}{Degree of circular polarization}
+\newacronym     {TA}{TA}{Transmission axis}
+\newacronym     {LP}{LP}{Linear polarizer}
+\newacronym     {QWP}{QWP}{Quarter wave plate}
+\newacronym     {MM}{MM}{Mueller matrix}
+\newacronym     {TE}{TE}{transverse electric}
+\newacronym     {TM}{TM}{transverse magnetic}
+\newacronym     {BRDF}{BRDF}{Bidirectional Reflectance Distribution Functions}
+\newacronym     {pBRDF}{pBRDF}{Polarimetric Bidirectional Reflectance Distribution Functions}
+\newacronym     {GLCM}{GLCM}{Grey Level Co-Occurrence Matrix}
+\newacronym     {ASM}{ASM}{angular second moment}
+\newacronym     {RWC}{RWC}{Relative Water Content}
+\newacronym     {NDVI}{NDVI}{Normalized Difference Vegetation Index}
+\newacronym     {NIR}{NIR}{Near infrared}
+\newacronym     {VARI}{VARI}{Visible Atmospherically Re- sistant Index}
+\newacronym     {FW}{FW}{Fresh weight}
+\newacronym     {TW}{TW}{Turgid weight}
+\newacronym     {DW}{DW}{Dry weight}
+\newacronym     {SVM}{SVM}{Support vector machines}
+\newacronym     {SVC}{SVC}{Support vector classifier}
+\newacronym     {ROC}{ROC}{receiver operating characteristic}
+\newacronym     {TSS}{TSS}{Total Sum of Squares}
+\newacronym     {RSS}{RSS}{Residual Sum of Squares}
 
 \newglossaryentry{LaTeX}{%
   name        = {\LaTeX},
@@ -183,6 +213,7 @@
   \endgroup
 
   \printindex
+  %\addcontentsline{toc}{section}{References}
   \printbibliography
 
 \end{document}

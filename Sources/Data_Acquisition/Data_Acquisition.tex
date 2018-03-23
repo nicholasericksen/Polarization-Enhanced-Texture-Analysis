@@ -11,14 +11,14 @@
   \vspace{0.5cm}
 \end{center}
 
-Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low /(<.02%/) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise [TODO explain how this would be handled outside a lab setting].  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in [17].
+Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low /(<.02%/) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise [TODO explain how this would be handled outside a lab setting].  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measurement of Stokes Parameters}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The Stokes parameters for a beam of light can be determined by measuring the flux values of orthogonal polarization states.  A variety of optical setups can be required to measure all of the Stokes parameters.  A Classical polarimeter is one that utilizes a rotating quarter wave plate in front of a linear polarizer to sample a sine wave from the intensities recorded by a detector.  A Fourier analysis is then performed on this signal to determine all of the Stokes parameters.
 
-It is shown in [7] that the Stokes parameter of a beam can be generally calculated as
+It is shown in \cite{chipman} that the Stokes parameter of a beam can be generally calculated as
 %
 \begin{align}
     \mathbf{S} =
@@ -80,7 +80,14 @@ For centuries the only photo detector available to those in the field of optics 
 A single pixel is not enough to capture texture.  Multiple measurements need to be made using a single pixel in order to quantify a region of space around the surface, denoted by the units of steradians in the BRDF models.  Multi-pixel detectors with a larger field of view allow for multiple features and texture to be captured in an image.
 
 A camera is made up of a pattern of multiple silicon photo detectors and filters.  The most common filter arrangement is that of a Bayer filter.  This pattern consists of red, green, and blue spectral filters arranged as shown in Figure 13.
-%TODO insert image of Bayer filter
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.5]{/Sources/Data_Acquisition/bayerfilter.png}}
+    \end{center}
+    \caption{Bayer Filter Pattern}
+    \label{fig:polarization}
+\end{figure}
+%[CHECK]
 
 The individual intensities from each of these filters are combined with the camera to create a 3 channel RGB representation of the image scene.  Each channel represents the intensity of a given pixel for the color filter in the Bayer pattern.
 
@@ -94,7 +101,7 @@ OpenCV, a popular image processing library in Python, stores images as intensiti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determining Relative Water Content}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The steps for determining the RWC involve weighing the leaf in its current water state, artificially hydrating the leaf to its maximum capacity and completely drying out the leaf.  The procedure for obtaining the measurements necessary for obtaining the RWC are as follows [9,10],
+The steps for determining the RWC involve weighing the leaf in its current water state, artificially hydrating the leaf to its maximum capacity and completely drying out the leaf.  The procedure for obtaining the measurements necessary for obtaining the RWC are as follows \cite{ecophysiology},\cite{rwc:1}],
 
 1.	Remove leaf from host plant leaving approximately 2 cm of petiole
 

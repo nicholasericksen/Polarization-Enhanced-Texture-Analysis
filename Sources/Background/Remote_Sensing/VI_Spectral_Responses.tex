@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Vegetation Indices and Spectral Responses}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Spectral response patterns in remote sensing have been shown to useful [many sources] for determining the health of land vegetation.  The reflection and scattering of light off vegetation using different spectral bands of incident light, allows for the classification of land objects and vegetation health.  The detector response to these processes are known as spectral responses.  Spectral responses are quantitative measures that change with the condition of the vegetation under inspection.  As plants become stressed, as in the case of water deficiency or drought, their physiological makeup changes.  A variety of different factors can affect the exact spectral response of an object [12].
+Spectral response patterns in remote sensing have been shown to useful [many sources] for determining the health of land vegetation.  The reflection and scattering of light off vegetation using different spectral bands of incident light, allows for the classification of land objects and vegetation health.  The detector response to these processes are known as spectral responses.  Spectral responses are quantitative measures that change with the condition of the vegetation under inspection.  As plants become stressed, as in the case of water deficiency or drought, their physiological makeup changes.  A variety of different factors can affect the exact spectral response of an object \cite{remotesensing}.
 
 Vegetative Indices (VI) are ratios between different spectral responses for the purpose of determining the condition and health of plants.  Various combinations of frequencies have been combined to form standard VI’s utilizing the visible spectrum and the infrared spectrum. In its most basic form a vegetation index is defined by,
 %
@@ -17,7 +17,7 @@ The Normalized Difference Vegetation Index (NDVI) utilizes a plant's response to
     NDVI = \frac{NIR - VIS_{red}}{NIR + VIS_{red}}
 \end{align}
 %
-In comparison, clouds, snow, and water all have relatively high visible responses and low NIR response.  Therefore, little interference from these effects is contributed to the overall NDVI.  Moreover, most satellites average NDVI recordings over a few days to also alleviate any interference with clouds and other particles in the atmosphere [12].
+In comparison, clouds, snow, and water all have relatively high visible responses and low NIR response.  Therefore, little interference from these effects is contributed to the overall NDVI.  Moreover, most satellites average NDVI recordings over a few days to also alleviate any interference with clouds and other particles in the atmosphere \cite{remotesensing}.
 The NDVI takes advantage of the extreme shift in reflectance and transmittance for plants between the visible and near infrared regions known as the red gap shown in Figure 10.
 
 %TODO insert transmittance and reflectance image
@@ -26,7 +26,7 @@ The reflectance curve for a plant leaf versus wavelength, shows that green light
 
 It should also be noted that as leaves dry down and become brown in color, the reflectance curve in the red part of the spectrum greatly increases [photon vegetation].  The magnitude of this change is dependent on the species of plant, as well as the maturity of the individual leaf structures.
 
-There are also metrics that utilize the visible spectrum such as the Visible Atmospherically Resistant Index (VARI) [13].  It is defined as
+There are also metrics that utilize the visible spectrum such as the Visible Atmospherically Resistant Index (VARI) \cite{harris}.  It is defined as
 %
 \begin{align}
     VARI = \frac{VIS_{green} - VIS_{red}}{VIS_{green} + VIS_{red}-VIS_{blue}}

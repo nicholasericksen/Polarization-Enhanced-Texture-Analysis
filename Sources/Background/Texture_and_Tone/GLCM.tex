@@ -65,7 +65,7 @@ where for the example given above the resulting $\mathbf{P}$ is
 %
 As expected the probability of finding a 0 next to a 1 is the same as finding a 1 next to a zero in a binary checkerboard image.
 
-Features can then be extracted from the formed matrix for the purpose of defining single quantitative values for texture.  These features are known as Haralick features and generally fall into 3 distinct feature categories; Contrast, Statistical and measures of Orderliness [24].
+Features can then be extracted from the formed matrix for the purpose of defining single quantitative values for texture.  These features are known as Haralick features and generally fall into 3 distinct feature categories; Contrast, Statistical and measures of Orderliness \cite{calgary}.
 
 Contrast measures are defined by weights that increase or decrease with distance from the GLCM diagonal.  These weights can be linear, exponential, etc. For the N x N dimensional GLCM matrix the N - 1 term in the first row or column represents pixel relationships that are of the greatest intensity difference.
 
@@ -107,7 +107,7 @@ Variance is the second moment of the GLCM and is defined as,
     \sigma_j = \sum_{i=0}^{N-1}\sum_{j=0}^{N-1}(j-\mu_j)^2P_{ij}
 \end{align}
 %
-The correlation shows the “linear dependency of grey level values in the Co-Occurence matrix”[3].  It is computed from the values of the variance and mean such that
+The correlation shows the “linear dependency of grey level values in the Co-Occurence matrix”\cite{haralickcancer}.  It is computed from the values of the variance and mean such that
 %
 \begin{align}
     Corr = \sum_{i=0}^{N-1}\sum_{j=0}^{N-1}(\frac{(i-\mu_i)(j-\mu_j)}{\sqrt{\sigma_i^2 \sigma_j^2}})

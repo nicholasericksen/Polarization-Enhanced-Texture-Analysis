@@ -20,21 +20,26 @@ where
 %
 is 4x4 Mueller Matrix that describes the diattenuation, depolarization, and retardance of a materials' polarization response to an input EM beam.
 
-Diattenuation – the two attenuations of orthogonal polarization states [7]
+Diattenuation – the two attenuations of orthogonal polarization states \cite{chipman}
 
-Retardance – the phase difference between two orthogonal polarization states [8]
+Retardance – the phase difference between two orthogonal polarization states \cite{giakos}
 
-Depolarization – a process where polarized light becomes unpolarized [8]
+Depolarization – a process where polarized light becomes unpolarized \cite{giakos}
 
 It has been shown that these parameters can be found by determining a sample's corresponding Mueller Matrix. The scalar parameters are mathematically defined as,
 \begin{align}
-    %\emphasis{Diattenuation} = \frac{\sqrt{m_{01}^2 + m_{02}^2 + m_{03}^2}}{m_{00}} \\
-%    \emphasis{Retardance} = cos^{-1}(\frac{tr(M_{ret})}{2}-1) \\
-%    \emphasis{Depolarization} = 1 - \frac{\sqrt{\sum_{i,j}m_{ij}^2} -m_{00}^2}{\sqrt{3}m_{00}^2}
+    \mathbf{Diattenuation} = \frac{T_{max} - T_{min}}{T_{max} + T_{min}}
 \end{align}
-[TODO explain these equations or remove them]
+\begin{align}
+    \mathbf{Retardance} = \delta = \frac{2\pi(n_1 - n_2)t}{\lambda}
+\end{align}
+\begin{align}
+    \mathbf{Depolarization} = 1 - DOP
+\end{align}
+were $T_{max}$ and $T_{min}$ are the intensity transmittances through a polarizer, $n_1$, $n_2$ and $t$ are the refractive indices and thickness of a retarder \cite{chipman}.
+[CHECK explain these equations or remove them]
 
-For nondepolarizing materials, their MM can be converted into Jones matrices.   Examples of Mueller Matrices for common optical elements can be found in [7].  The general form of a linear polarizer with transmission axis at 0 degrees to the $x$ axis is
+For nondepolarizing materials, their MM can be converted into Jones matrices.   Examples of Mueller Matrices for common optical elements can be found in \cite{chipman}.  The general form of a linear polarizer with transmission axis at 0 degrees to the $x$ axis is
 %
 \begin{align}
     \mathbf{M} =
@@ -60,6 +65,6 @@ The effects of diattenuation, depolarization and retardance can be found to be r
         \mathbf{P} & \mathbf{m}
     \end{bmatrix}
 \end{align}
-The derivation of the MM decomposition was made known by Lu and Chipman and is reproduced in [14]. $\mathbf{D}^T$ is the diattenutation vector that describes the amount of decrease in overall polarization for each set of orthogonal polarization states. The m matrix represents the retardance of a material.
+The derivation of the MM decomposition was made known by Lu and Chipman and is reproduced in \cite{polarizedlight}. $\mathbf{D}^T$ is the diattenutation vector that describes the amount of decrease in overall polarization for each set of orthogonal polarization states. The m matrix represents the retardance of a material.
 
 $\mathbf{P}$ is the polarizance vector, and describes the amount of light that becomes polarized when unpolarized light is incident.  It is analogous to the effect of depolarization.  This vector can be measured by detecting the output Stokes vector of a material when unpolarized light is incident.  This effect is only evident in materials that create polarization.
