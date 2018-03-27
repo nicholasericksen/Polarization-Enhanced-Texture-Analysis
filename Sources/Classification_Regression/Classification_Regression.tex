@@ -38,7 +38,13 @@ Cross validation of results is important for reducing the training and testing b
 A stratified K-fold validation can be used for ensuring that when sets of training and testing sets are created, the testing sets contain equal amounts of each class.  This is especially useful in unequally distributed sets of data.
 
 In binary classification problems, it is of interest to understand the ability of a classifier to correctly predict the true condition of the sample under inspection.  The possible outcomes of a classification can be found in Figure
-% TODO create ROC boxes
+\begin{figure}
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.6]{/Sources/Classification_Regression/ROC.png}}
+    \end{center}
+    \caption{Receiver Operating Characteristic Outcomes}
+    \label{fig:polarization}
+\end{figure}
 A true positive result is one that correctly identifies the sample.  False negatives incorrectly predict that a sample was not in its own class.  False positives are when samples are incorrectly identified with another class.  True negatives correctly identify that a sample is not a member of the class being tested against.   These rates can be combined into useful metrics for quantifying a classifiers performance.
 
 The precision of a classifier is a measure of the relevancy of its results.  It is an overall indicator of the false positive rate of a classifier.
@@ -66,10 +72,10 @@ All of these features are available in the Sklearn package and an example is sho
 \begin{lstlisting}
 from sklearn.model_selection import classification_report, StratifiedKFold
 
-cv = StratifiedKFold(2, shuffle=True)
+cv = StratifiedKFold(5, shuffle=True)
 
 for train, test in cv.split(X, y):
-    y_test = label_binarize(y[test], classes=[0,1,2, 3])
+    y_test = label_binarize(y[test], classes=[0,1,2])
 
     fit = clf.fit(X[train], y[train])
 
@@ -78,9 +84,9 @@ for train, test in cv.split(X, y):
     print classification_report(y[test], y_pred)
 \end{lstlisting}
 %
-These metrics are often visualized using receiver operating characteristic (ROC) curves for binary classification, and confusion matrices for multiclass problems.  ROC curves show the sensitivity vs the specificity [TODO explain specifity] of a binary classifier by plotting the false positive rate versus the true positive rate.  It “is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied” [wiki]. The area under the ROC curve, often denoted AUC, is a measure equivalent to the score of a classifier. It should be noted that for multiclass problems ROC curves can be more optimistic than the individual performance metrics.
+These metrics are often visualized using receiver operating characteristic (ROC) curves for binary classification, and confusion matrices for multiclass problems.  ROC curves show the sensitivity vs the specificity [TODO explain specifity] of a binary classifier by plotting the false positive rate versus the true positive rate.  It “is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied” [wiki]. The area under the ROC curve, often denoted AUC, is a measure equivalent to the score of a classifier. It should be noted that for multi-class problems ROC curves can be more optimistic than the individual performance metrics.
 
-ROCs can be extended to multiclass problems, by using a one verse many techniques [TODO explain these techniques used] although a confusion matrix is often used to show the accuracy of a classifier between each of the various classes.  A confusion matrix shows the classifier score against each combination of true value and predicted value.  It therefore shows all outcomes of classification.
+ROCs can be extended to multi-class problems, by using a one verse many techniques [TODO explain these techniques used] although a confusion matrix is often used to show the accuracy of a classifier between each of the various classes.  A confusion matrix shows the classifier score against each combination of true value and predicted value.  It therefore shows all outcomes of classification.
 
 It is important to understand the bias and variance of a model when determining its overall effectiveness.  The bias is the average error for different training sets while the variance indicates how sensitive a model is to varying training sets.
 
@@ -120,6 +126,7 @@ For a given application it is difficult to determine what a 'good' $R^2$ score i
 
 \subsection{Principal Component Analysis}
 When a dataset has a large number of features, it becomes difficult to visualize these features against a given model.  Principal Component Analysis (PCA) allows for reducing the dimensionality of data by combining variables that are highly correlated. By performing this process, it becomes possible to observe only the features that contain as much information as possible.  For the dataset utilized in these experiments the features were more than a few dozen in total so reducing the dimensionality was important when visually interpreting the results. The Scikit-learn Python module has a helper utility to provide this reduction in dimensionality.  The code used for performing the linear regression and plotting the first principal component versus the relative water content can be found in Figure.
+\newpage
 \begin{lstlisting}
     from __future__ import division
     import numpy as np
@@ -133,20 +140,17 @@ When a dataset has a large number of features, it becomes difficult to visualize
     from sklearn.preprocessing import PolynomialFeatures
 
     transformer = FunctionTransformer(np.log1p)
-
     data = np.genfromtxt('data.csv', delimiter=',')
     X = data[:,1:]
     X = normalize(X, axis=1)
     X = transformer.transform(X)
     poly = PolynomialFeatures(degree=1)
     X = poly.fit_transform(X)
-
     y = data[:,0]
 
     pca = sklearnPCA(n_components=1)
     X = pca.fit_transform(X)
 
-    print X
     mean = np.mean(X)
     std = np.std(X)
 

@@ -3,18 +3,19 @@
 \select@language {english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\relax 2.1}{\ignorespaces Plant physiological responses to detected relative water content levels. \relax }}{21}{table.caption.11}
+\contentsline {table}{\numberline {\relax 2.1}{\ignorespaces Plant physiological responses to detected relative water content levels. \relax }}{24}{table.caption.16}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\relax 4.1}{\ignorespaces Measurements for RWC Experiment \relax }}{32}{table.caption.15}
+\contentsline {table}{\numberline {\relax 4.1}{\ignorespaces Measurements for RWC Experiment \relax }}{34}{table.caption.20}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {\relax 7.1}{\ignorespaces Scores for Classification in the Specular Direction with Polarization and Texture in Specular Direction. \relax }}{49}{table.caption.26}
-\contentsline {table}{\numberline {\relax 7.2}{\ignorespaces Scores for Classification in the Specular Direction with Just Polarization in Specular Direction. \relax }}{50}{table.caption.27}
-\contentsline {table}{\numberline {\relax 7.3}{\ignorespaces Scores for Classification in the Specular Direction with Just Texture in Specular Direction. \relax }}{51}{table.caption.28}
-\contentsline {table}{\numberline {\relax 7.4}{\ignorespaces Scores for Classification in the Diffuse Direction with Polarization and Texture in Diffuse Direction. \relax }}{55}{table.caption.39}
-\contentsline {table}{\numberline {\relax 7.5}{\ignorespaces Scores for Classification in the Diffuse Direction with Just Polarization in Diffuse Direction. \relax }}{56}{table.caption.40}
-\contentsline {table}{\numberline {\relax 7.6}{\ignorespaces Scores for Classification in the Diffuse Direction with Just Texture in Diffuse Direction. \relax }}{57}{table.caption.41}
-\contentsline {table}{\numberline {\relax 7.7}{\ignorespaces Scores for Regression in the Specular Direction \relax }}{59}{table.caption.43}
+\contentsline {table}{\numberline {\relax 7.1}{\ignorespaces Scores for Classification in the Specular Direction with Polarization and Texture in Specular Direction. \relax }}{51}{table.caption.32}
+\contentsline {table}{\numberline {\relax 7.2}{\ignorespaces Scores for Classification in the Specular Direction with Just Polarization in Specular Direction. \relax }}{52}{table.caption.33}
+\contentsline {table}{\numberline {\relax 7.3}{\ignorespaces Scores for Classification in the Specular Direction with Just Texture in Specular Direction. \relax }}{53}{table.caption.34}
+\contentsline {table}{\numberline {\relax 7.4}{\ignorespaces Scores for Classification in the Diffuse Direction with Polarization and Texture in Diffuse Direction. \relax }}{57}{table.caption.45}
+\contentsline {table}{\numberline {\relax 7.5}{\ignorespaces Scores for Classification in the Diffuse Direction with Just Polarization in Diffuse Direction. \relax }}{58}{table.caption.46}
+\contentsline {table}{\numberline {\relax 7.6}{\ignorespaces Scores for Classification in the Diffuse Direction with Just Texture in Diffuse Direction. \relax }}{59}{table.caption.47}
+\contentsline {table}{\numberline {\relax 7.7}{\ignorespaces Scores for Regression in the Specular Direction \relax }}{61}{table.caption.49}
+\addvspace {10\p@ }
 \addvspace {10\p@ }

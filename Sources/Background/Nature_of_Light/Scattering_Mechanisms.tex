@@ -10,7 +10,7 @@ Volume scattering occurs when light is absorbed by a material and is readmitted 
 
 Multiple scattering occurs when either Type A or Type B photons interact with the material surface more than once when either being reflected or re transmitted out of the material.  These are denoted Type C photons \cite{schott}.  Figure 6 shows each type of interaction.
 %
-\begin{figure}[!htb]
+\begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.75]{/Sources/Background/Nature_of_Light/photon-interactions-wo.png}}
     \end{center}
@@ -21,14 +21,47 @@ Multiple scattering occurs when either Type A or Type B photons interact with th
 In general type A photons create specular highlights from surfaces that are smooth.  Type B and C photons become more prevalent as a surface becomes rougher.  In most real world applications, surfaces are neither purely specular or purely diffuse.
 
 Surfaces that are perfectly smooth dielectrics are often considered to be purely specular reflectors of light.  Incident energy is transmitted in an idealized single ray of light from the surface.  Specular reflectors are single scattering mechanisms and result in purely polarized light due to the governance of Fresnel’s equations and are denoted as type A photons.
-
-In simple models, rough surfaces can be viewed as purely diffuse reflectors that scatter incident light equally in all directions.  Perfect diffuse surfaces are known as Lambertian surfaces.  It has been assumed that the diffuse portion of light is unpolarized due to random nature of internal reflections [\cite{specularclass}, \cite{grant}]. Bidirectional Reflectance Distribution Functions (BRDF) have been created to model the variety of surface interactions in order to handle the non ideal case of rough surfaces. (TODO in its simplest form rotational symmetry is assumed around the point of incidence and the equation becomes)
-\begin{figure}[!htb]
+%
+\begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.45]{/Sources/Background/Nature_of_Light/diffuse-specular.png}}
     \end{center}
     \caption{Diffuse and Specular Scattering}
     \label{fig:scattering}
 \end{figure}
+%
+In simple models, rough surfaces can be viewed as purely diffuse reflectors that scatter incident light equally in all directions.  Perfect diffuse surfaces are known as Lambertian surfaces.  It has been assumed that the diffuse portion of light is unpolarized due to random nature of internal reflections [\cite{specularclass}, \cite{grant}].
+\begin{figure}
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.7]{/Sources/Background/Nature_of_Light/brdf-simple.png}}
+    \end{center}
+    \caption{Simple BRDF Model}
+    \label{fig:scattering}
+\end{figure}
+Bidirectional Reflectance Distribution Functions (BRDF) have been created to model the variety of surface interactions in order to handle the non ideal case of rough surfaces. [TODO in its simplest form rotational symmetry is assumed around the point of incidence and the equation becomes]
+The BRDF defines how incident radiation is reflected off of opaque surfaces.  It is defined as a ratio of reflected radiance along path $\omega_r$ to incident irradiance $\omega_i$. A simple depiction of this scenario can be found in Figure .
 
+The BRDF function is often defined in the form
+%
+\begin{align}
+    f_r(\omega_i, \omega_r) = \frac{dL_r(\omega_r)}{dE_i(\omega_i)}
+\end{align}
+%
+Each $\omega$ is a function of azimuth angle $\phi$ and zenith angle $\theta$. The input irradiance and output radiance are measured in units of steradians and are considered in terms of there power per steradian [TODO add units here and check this!!] as shown in Figure .
+where numerous models have been developed for the functions of $L$ and $E$ \cite{sparrow}\cite{brdfoverview}.  In its simplest case the surface is a purely diffuse reflector of incident light and the BRDF becomes
+%
+\begin{align}
+    f_r(\omega_i, \omega_r) = \frac{\rho}{\pi}
+\end{align}
+%
+where $\rho$ is the surface albedo, or proportion of light reflected from a surface \cite{nicodemus} and ranges from $0\leq\rho\leq1$.  A general diagram can be found in Figure.  In the most general case the portion of reflectance that is purely specular can be thought of as a $\delta$ function.  Most surfaces create non-ideal reflections made up of both specular and diffuse components.
+%
+\begin{figure}
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.7]{/Sources/Background/Nature_of_Light/brdf-v2.png}}
+    \end{center}
+    \caption{General BRDF Model}
+    \label{fig:scattering}
+\end{figure}
+%
 The notion of a surface being rough, smooth, fine or coarse come with the connotation of touch and the feeling of a materials' surface.  They are textures.

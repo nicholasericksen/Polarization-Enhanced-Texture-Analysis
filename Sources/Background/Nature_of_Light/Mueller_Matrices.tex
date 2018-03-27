@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mueller Matrices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Interactions with materials that can create depolarization and model partially polarized input and outputs cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with the equation
+Interactions with materials that can create depolarization and model partially polarized input and outputs cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with equation [CHECK add system diagram here with boxes] and shown in Figure.
 \begin{align}
     \mathbf{S}_{out} = \mathbf{M}\mathbf{S}_{in}
 \end{align}
 %
-where
+When EM waves interact with optically active materials, their state of polarization may change.  The characteristics of a material which changes the amplitude or phase of the $x$ or $y$ component for an incident EM wave, i.e. the  polarization, is defined by its Mueller matrix.  Mueller matrices determine how input Stokes' vectors change upon interaction with a material. They are defined as
 %
 \begin{align}
     \mathbf{M} =
@@ -14,17 +14,45 @@ where
         m_{00} & m_{01} & m_{02} & m_{03} \\
         m_{10} & m_{11} & m_{12} & m_{13} \\
         m_{20} & m_{21} & m_{22} & m_{23} \\
-        m_{30} & m_{31} & m_{32} & m_{33} \\
+        m_{30} & m_{31} & m_{32} & m_{33}
     \end{bmatrix}
 \end{align}
 %
-is 4x4 Mueller Matrix that describes the diattenuation, depolarization, and retardance of a materials' polarization response to an input EM beam.
+and describe the diattenuation, depolarization, and retardance of a materials' polarization response to an input EM beam.
+%The general equation for polarization material interaction is
+\begin{figure}
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.6]{/Sources/Background/Nature_of_Light/system_stokes.png}}
+    \end{center}
+    \caption{Stokes-Mueller System Diagram}
+    \label{fig:polarization}
+\end{figure}
+%\begin{align}
+%    \begin{bmatrix}
+%        S_0 \\
+%        S_1 \\
+%        S_2 \\
+%        S_3
+%    \end{bmatrix}
+%        m_{00} & m_{01} & m_{02} & m_{03} \\
+%        m_{10} & m_{11} & m_{12} & m_{13} \\
+%        m_{20} & m_{21} & m_{22} & m_{23} \\
+%        m_{30} & m_{31} & m_{32} & m_{33}
+%    \end{bmatrix}
+%    \begin{bmatrix}
+%        S_0^\prime \\
+%        S_1^\prime \\
+%        S_2^\prime \\
+%        S_3\prime
+%    \end{bmatrix}
+%\end{align}
 
-Diattenuation – the two attenuations of orthogonal polarization states \cite{chipman}
+%[CHECK these get bolded]
+\underline{Diattenuation} – the two attenuations of orthogonal polarization states \cite{chipman}
 
-Retardance – the phase difference between two orthogonal polarization states \cite{giakos}
+\underline{Retardance} – the phase difference between two orthogonal polarization states \cite{giakos}
 
-Depolarization – a process where polarized light becomes unpolarized \cite{giakos}
+\underline{Depolarization} – a process where polarized light becomes unpolarized \cite{giakos}
 
 It has been shown that these parameters can be found by determining a sample's corresponding Mueller Matrix. The scalar parameters are mathematically defined as,
 \begin{align}
@@ -51,7 +79,7 @@ For nondepolarizing materials, their MM can be converted into Jones matrices.   
     \end{bmatrix}
 \end{align}
 %
-where q and r are the attenuation coefficients for the X and Y axis.
+where $q$ and $r$ are the attenuation coefficients for the $x$ and $y$ axis [TODO relate this to the later equation showing transmissiona and reflection].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mueller Matrix Decomposition}

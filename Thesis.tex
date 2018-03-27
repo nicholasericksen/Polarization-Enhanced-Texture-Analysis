@@ -43,6 +43,12 @@
 
 \usepackage{bookmark}
 
+%%%%%%%%%%%%%%%%%%%
+% Appendix
+%%%%%%%%%%%%%%%%%%%
+\usepackage[title]{appendix}
+\usepackage[demo]{rotating}
+%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -208,9 +214,13 @@
     \let\clearpage\relax
     \glsaddall
     \printglossary[type=\acronymtype]
-    \newpage
-    \printglossary
+%    \newpage
+    \include{Sources/Appendix/Appendix}
   \endgroup
+
+  %USE THIS LINE TO REMOVE BLANK PAGES
+  \let\cleardoublepage\clearpage
+
 
   \printindex
   %\addcontentsline{toc}{section}{References}

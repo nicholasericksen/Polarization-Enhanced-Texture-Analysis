@@ -88,7 +88,6 @@ substitution into equation and completing the square results in
 \end{align}
 %
 The terms of this equation represent the polarization state of a wave in relation to the x and y intensities and relative phase delay between the two components.
-
 These quantities are known as the Stokes parameters and describe the state of polarization and are often represented as a vector,
 %
 \begin{align}
@@ -134,7 +133,7 @@ summed together as
     \end{bmatrix}
 \end{align}
 %
-The degree of polarization for the linear and circular polarization can specifically be quantified as
+The degree of polarization for the linear (DOLP) and circular polarization (DOCP) can specifically be quantified as
 %
 \begin{align}
     DOLP=  \frac{\sqrt{S_1^2+S_2^2 }}{S_0} \\
@@ -181,3 +180,17 @@ For	graphical representation, Stokes vectors can be plotted on a 3-dimensional s
     \label{fig:polarization}
 \end{figure}
 %[CHECK]
+
+The zenith angle of the polarization ellipse, represented in Figure as $2\chi$ is found to be related to the parameters of the polarization ellipse by
+%
+\begin{align}
+    sin2\chi = \frac{2E_{0x}2E_{0y}sin\delta}{E_{0x}^2+E_{0y}^2}\qquad -\pi / 4 \leq \chi \leq \pi / 4
+\end{align}
+%
+The azimuth angle $2\psi$ is defined in relation to the parameters of the polarization ellipse as
+%
+\begin{align}
+    tan2\psi = \frac{2E_{0x}2E_{0y}cos\delta}{E_{0x}^2-E_{0y}^2}\qquad 0 \leq \psi \leq \pi
+\end{align}
+%
+For a given state of the polarization ellipse, the angles for plotting the corresponding polarization state on the Poincare sphere can be found using these equations\cite{spieellipse}.
