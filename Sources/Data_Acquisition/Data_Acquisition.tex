@@ -11,7 +11,7 @@
   \vspace{0.5cm}
 \end{center}
 
-Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low /(<.02%/) The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise [TODO explain how this would be handled outside a lab setting].  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
+Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low of 0.02 percent. The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  In real world applications any ambient light should be accounted for using radiometric calibration techniques, or other correction methods.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measurement of Stokes Parameters}
@@ -58,19 +58,24 @@ For most natural and man made objects the reflections are assumed to contain lit
     \end{bmatrix}
 \end{align}
 %
-The linear elements of the Stokes vector can be determined using just a linear polarizer and rotating the polarizer to 0, 45 90 and 135 degrees as seen in Figure xx.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $S$ and $P$ components of the electric field previously described.
+The linear elements of the Stokes vector can be determined using just a linear polarizer and rotating the polarizer to 0, 45 90 and 135 degrees.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $S$ and $P$ components of the electric field previously described.
 %
 %ßß\begin{center}
 %  \makebox[\textwidth]{\includegraphics[width=8cm]{Sources/Background/Data_Acquisition/exper_setup.png}}
 %\end{center}
 %
-The linear polarizer was calibrated using a polarizer of known axis orientation.  The calibration polarizer was kept with its axis constant to the S plane of the material.  The lens of the measurement polarizer was rotated until a null intensity was reached and the axis of transmission for the polarizer was orthogonal to that of the calibration polarizer.  The polarizer has a known extinction ratio of 19 and a polarization of 95% efficiency.  The spectral response across the visible spectrum is shown in Figure 12.  It shows that the polarizer produces a constant response across the visible range of the energy spectrum.
+The linear polarizer was calibrated using a polarizer of known axis orientation.  The calibration polarizer was kept with its axis constant to the S plane of the material.  The lens of the measurement polarizer was rotated until a null intensity was reached and the axis of transmission for the polarizer was orthogonal to that of the calibration polarizer.  The polarizer has a known extinction ratio of 19 and a polarization of 95% efficiency.  The spectral response across the visible spectrum is shown in Figure 4.1.  It shows that the polarizer produces a constant response across the visible range of the energy spectrum.
 
-% TODO insert image of polarizer characteristics
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.75]{/Sources/Data_Acquisition/polarizer-charac.png}}
+    \end{center}
+    \caption{Polarizer Characteristic from Edmund Optics}
+    \label{fig:polarization}
+\end{figure}
 When unpolarized light is incident, the Stokes vector for the exiting beam is identical to the polarizance of the Mueller matrix for the material and can be useful for classification of materials.
 
 The intensity measurement is recorded with a detector.
-%[TODO show work on S_out=MS_in]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single and Multi-Pixel Detectors}
@@ -79,7 +84,7 @@ For centuries the only photo detector available to those in the field of optics 
 
 A single pixel is not enough to capture texture.  Multiple measurements need to be made using a single pixel in order to quantify a region of space around the surface, denoted by the units of steradians in the BRDF models.  Multi-pixel detectors with a larger field of view allow for multiple features and texture to be captured in an image.
 
-A camera is made up of a pattern of multiple silicon photo detectors and filters.  The most common filter arrangement is that of a Bayer filter.  This pattern consists of red, green, and blue spectral filters arranged as shown in Figure 13.
+A camera is made up of a pattern of multiple silicon photo detectors and filters.  The most common filter arrangement is that of a Bayer filter.  This pattern consists of red, green, and blue spectral filters arranged as shown in Figure 4.2.
 \begin{figure}[!htb]
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.5]{/Sources/Data_Acquisition/bayerfilter-v2.png}}
@@ -87,16 +92,14 @@ A camera is made up of a pattern of multiple silicon photo detectors and filters
     \caption{Bayer Filter Pattern}
     \label{fig:polarization}
 \end{figure}
-%[CHECK]
-
+%
 The individual intensities from each of these filters are combined with the camera to create a 3 channel RGB representation of the image scene.  Each channel represents the intensity of a given pixel for the color filter in the Bayer pattern.
 
 Single and multi-pixel devices have been utilized in Polarimetry for different applications.  A camera was utilized for these experiments as it provides information on texture, as well as an ability to distinguish features in each of the spectral color channels.
 
-The intensity values for each RGB channel of an image can easily be extracted using the OpenCV python package.  Note that OpenCV actually holds images in reverse order as BGR.  A typical graph of the quantum efficiency for each wavelength in the visible region for CMOS sensors typically used in consumer cameras, can be found in Figure 14.
-% TODO insert bayer filter transmission characteristics
+The intensity values for each RGB channel of an image can easily be extracted using the OpenCV python package.  Note that OpenCV actually holds images in reverse order as BGR.
 
-OpenCV, a popular image processing library in Python, stores images as intensities in a multidimensional array representing the blue, green, and red response curves shown above.  It is possible to separate these channels and perform a pseudo-spectral analysis.
+OpenCV, a popular image processing library in Python, stores images as intensities in a multidimensional array representing the blue, green, and red response patterns.  It is possible to separate these channels and access the discrete intensity values to perform a pseudo-spectral analysis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determining Relative Water Content}
@@ -136,6 +139,42 @@ Note that the scale used for weighing needs to have at least 4 decimal places to
       \texttt{22} & 1.7655 & 1.8022 & 0.1404 & 97.7916 \\
       \texttt{31} & 2.1874 & 2.2359 & 0.1656 & 97.6573 \\
       \texttt{32} & 2.2511 & 2.3108 & 0.1687 & 97.2130 \\
+      %
+      \texttt{1\_1} & 1.3687 & 1.3807 & 0.0826 & 99.0756 \\
+      \texttt{1\_2} & 1.6860 & 1.7015 & 0.1024 & 99.0307 \\
+      \texttt{2\_1} & 1.4904 & 1.4904 & 0.1029 & 97.0378 \\
+      \texttt{2\_2} & 2.2324 & 2.2690 & 0.2003 & 98.2308 \\
+      \texttt{3\_1} & 1.2877 & 1.3003 & 0.1070 & 98.9441 \\
+      \texttt{3\_2} & 1.7654 & 1.7825 & 0.1330 & 98.9633 \\
+      %
+      \texttt{1+1} & 2.1297 & 2.1586 & 0.1667 & 98.5491 \\
+      \texttt{1+2} & 1.5341 & 1.5699 & 0.0973 & 97.5689 \\
+      \texttt{2+1} & 1.1938 & 1.3323 & 0.0867 & 88.8809 \\
+      \texttt{2+2} & 2.2729 & 2.4420 & 0.2165 & 92.4017 \\
+      \texttt{3+1} & 1.5755 & 1.6441 & 0.1314 & 95.4651 \\
+      \texttt{3+2} & 2.3954 & 2.4486 & 0.2114 & 97.6220 \\
+      %
+      \texttt{3\&1} & 1.6107 & 1.6478 & 0.1380 & 98.4379 \\
+      \texttt{3\&2} & 2.3541 & 2.4297 & 0.1987 & 98.4411 \\
+      \texttt{3\&3} & 1.6821 & 1.7432 & 0.1758 & 98.5187 \\
+      \texttt{3\&4} & 2.0762 & 2.1322 & 0.2168 & 97.7916 \\
+      \texttt{3\&5} & 1.1001 & 1.1153 & 0.0823 & 97.6573 \\
+      \texttt{3\&6} & 2.0207 & 2.2154 & 0.1737 & 97.2130 \\
+      %
+      \texttt{1.1} & 1.1294 & 1.1478 & 0.0702 & 98.2925 \\
+      \texttt{1.2} & 1.0425 & 1.0525 & 0.0631 & 98.9893 \\
+      \texttt{2.1} & 1.2669 & 1.2905 & 0.0987 & 98.0198 \\
+      \texttt{2.2} & 1.0833 & 1.0961 & 0.0769 & 98.7441 \\
+      \texttt{3.1} & 1.0311 & 1.0377 & 0.0872 & 99.3056 \\
+      \texttt{3.2} & 1.2738 & 1.2820 & 0.1097 & 99.3005 \\
+      %
+      \texttt{3\textasciicircum1} & 1.1240 & 1.1462 & 0.0959 & 97.8863 \\
+      \texttt{3\textasciicircum2} & 1.5232 & 1.5917 & 0.1597 & 95.2165 \\
+      \texttt{3\textasciicircum3} & 1.4585 & 1.4826 & 0.1218 & 98.2290 \\
+      \texttt{3\textasciicircum4} & 1.0184 & 1.0504 & 0.0822 & 96.6949 \\
+      \texttt{3\textasciicircum5} & 1.3605 & 1.3605 & 0.0967 & 97.6974 \\
+      \texttt{3\textasciicircum6} & 1.2660 & 1.2660 & 0.0935 & 97.9446 \\
+      %
     \bottomrule
   \end{tabular}
   \caption{%
@@ -144,4 +183,3 @@ Note that the scale used for weighing needs to have at least 4 decimal places to
   \label{tab:Packages}
 \end{table}
 %
-[add picture here showing the process ?]

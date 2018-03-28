@@ -191,11 +191,15 @@ Wave plates create a phase delay between the fast and slow axis of incident line
 Two common wave plates are the half wave plate and the quarter wave plate.  These produce a delay of $\pi$ and $\pi/2$ respectively.
 
 The noobelectric python package has a module for dealing with these types of problems and it automates Jones optical calculations for purely polarized light beams.  An example for a linear polarizer combined with a quarter wave plate can be created and various input polarization states into the system as shown below.
-\begin{lstlisting}
->>> from noobee.jones import j, lp
->>> j_in = j(1,0)
->>> lp_1 = lp(0)
->>> lp_1 * j_in
-matrix([[ 1.],
-        [ 0.]])
-\end{lstlisting}
+\begin{figure}
+    \begin{lstlisting}
+        >>> from noobee.jones import j, lp
+        >>> j_in = j(1,0)
+        >>> lp_1 = lp(0)
+        >>> lp_1 * j_in
+        matrix([[ 1.],
+                [ 0.]])
+    \end{lstlisting}
+    \caption{noobee code for Jones Vectors}
+    \label{fig:scattering}
+\end{figure}

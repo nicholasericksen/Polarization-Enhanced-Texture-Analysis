@@ -29,7 +29,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \usepackage{amsmath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%
+%macro for signatures
+%%%%%%%%%%
+\newcommand{\namesigdate}[2][5cm]{%
+  \begin{tabular}{@{}p{#1}@{}}
+    #2 \\[\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Signature}} \\[\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Date}}
+  \end{tabular}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperlinks & bookmarks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,6 +196,7 @@
 
 \frontmatter
   \include{Sources/Title}
+  \include{Sources/Signing}
   \include{Sources/Abstract}
   \include{Sources/Thanks}
 
@@ -219,7 +229,7 @@
   \endgroup
 
   %USE THIS LINE TO REMOVE BLANK PAGES
-  \let\cleardoublepage\clearpage
+  %\let\cleardoublepage\clearpage
 
 
   \printindex

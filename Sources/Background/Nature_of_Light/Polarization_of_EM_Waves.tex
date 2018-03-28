@@ -15,21 +15,20 @@ We can then define the $x$ and $y$ component of the wave as
 %
 \begin{align}
 	E_x (t)=E_{0x} cos(\tau)\\
-	E_y (t)=E_{0y} cos(\tau+\delta_y )
+	E_y (t)=E_{0y} cos(\tau+\delta )
+\end{align}
+%
+Dividing each equation by its intensity results in
+%
+\begin{align}
+    \frac{E_x (t)}{E_{0x}} =cos(\tau) \\
+    \frac{E_y (t)}{E_{0y}} =cos(\tau+\delta )
 \end{align}
 %
 The $y$ component is then separated using known trigonometric identities and equation
 %
 \begin{align}
-E_y (t)=E_{0y} (cos(\tau) cos(\delta)-sin(\tau)sin(\delta))
-\end{align}
-%
-[TODO show what delta equals here how delta y goes to just delta?]
-Dividing each equation by its intensity results in
-%
-\begin{align}
-    \frac{E_x (t)}{E_{0x}} =cos(\tau) \\
-    \frac{E_y (t)}{E_{0y}} =cos(\tau+\delta_y )
+\frac{E_y (t)}{E_{0y}} =  (cos(\tau) cos(\delta)-sin(\tau)sin(\delta))
 \end{align}
 %
 Again using known trigonometric identities
@@ -50,9 +49,9 @@ The factorization of this equation can be rearranged into the standard form of a
     \frac{E_x (t)^2}{E_{0x}^2} +\frac{E_y (t)^2}{E_{0y}^2} -2 \frac{E_x E_y}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
 \end{align}
 %
-And is graphed as
-%[CHECK replace this image with one that has both parameters]
-\begin{figure}[!htb]
+And is graphed as seen in Figure 2.2.
+%
+\begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.5]{/Sources/Background/Nature_of_Light/polarization-ellipse-binary-v2.png}}
     \end{center}
@@ -68,7 +67,7 @@ Starting from the equation for the polarization ellipse, taking the time average
     \frac{E_x (t)^2}{E_{0x}^2} + \frac{E_y (t)^2}{E_{0y}^2} - \frac{2 E_x (t) E_y (t)}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
 \end{align}
 %
-the time averages are calculated as [CHECK Fix this equation]
+the time averages are calculated as
 %
 \begin{align}
     <E_x (t)^2> = lim_{T \rightarrow \infty} \int_{0}^{2\pi} E_{0x} cos(\tau)  d\tau=\frac{1}{2} E_{0x}^2
@@ -179,9 +178,8 @@ For	graphical representation, Stokes vectors can be plotted on a 3-dimensional s
     \caption{Poincare Sphere}
     \label{fig:polarization}
 \end{figure}
-%[CHECK]
-
-The zenith angle of the polarization ellipse, represented in Figure as $2\chi$ is found to be related to the parameters of the polarization ellipse by
+%
+The zenith angle of the polarization ellipse, represented in Figure 2.3 as $2\chi$ is found to be related to the parameters of the polarization ellipse by
 %
 \begin{align}
     sin2\chi = \frac{2E_{0x}2E_{0y}sin\delta}{E_{0x}^2+E_{0y}^2}\qquad -\pi / 4 \leq \chi \leq \pi / 4

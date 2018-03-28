@@ -8,7 +8,7 @@ Single scattering mechanisms create a portion of reflectance known as specular r
 
 Volume scattering occurs when light is absorbed by a material and is readmitted in all directions, including back towards the surface of the material.  They are denoted Type B photons.  Transmittance of this energy back into the first medium obeys the laws of Fresnel’s equations, although the indices of refraction are reversed.  This mechanism accounts for absorption and other higher level light matter interactions, not explained solely by Fresnel’s equations.
 
-Multiple scattering occurs when either Type A or Type B photons interact with the material surface more than once when either being reflected or re transmitted out of the material.  These are denoted Type C photons \cite{schott}.  Figure 6 shows each type of interaction.
+Multiple scattering occurs when either Type A or Type B photons interact with the material surface more than once when either being reflected or re transmitted out of the material.  These are denoted Type C photons \cite{schott}.  Figure 2.7 shows each type of interaction.
 %
 \begin{figure}
     \begin{center}
@@ -30,7 +30,7 @@ Surfaces that are perfectly smooth dielectrics are often considered to be purely
     \label{fig:scattering}
 \end{figure}
 %
-In simple models, rough surfaces can be viewed as purely diffuse reflectors that scatter incident light equally in all directions.  Perfect diffuse surfaces are known as Lambertian surfaces.  It has been assumed that the diffuse portion of light is unpolarized due to random nature of internal reflections [\cite{specularclass}, \cite{grant}].
+In simple models, rough surfaces can be viewed as purely diffuse reflectors that scatter incident light equally in all directions.  Perfect diffuse surfaces are known as Lambertian surfaces.  It has been assumed that the diffuse portion of light is unpolarized due to random nature of internal reflections \cite{specularclass}, \cite{grant}.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.7]{/Sources/Background/Nature_of_Light/brdf-simple.png}}
@@ -38,8 +38,7 @@ In simple models, rough surfaces can be viewed as purely diffuse reflectors that
     \caption{Simple BRDF Model}
     \label{fig:scattering}
 \end{figure}
-Bidirectional Reflectance Distribution Functions (BRDF) have been created to model the variety of surface interactions in order to handle the non ideal case of rough surfaces. [TODO in its simplest form rotational symmetry is assumed around the point of incidence and the equation becomes]
-The BRDF defines how incident radiation is reflected off of opaque surfaces.  It is defined as a ratio of reflected radiance along path $\omega_r$ to incident irradiance $\omega_i$. A simple depiction of this scenario can be found in Figure .
+Bidirectional Reflectance Distribution Functions (BRDF) have been created to model the variety of surface interactions in order to handle the non ideal case of rough surfaces. BRDF defines how incident radiation is reflected off of opaque surfaces.  It is defined as a ratio of reflected radiance along path $\omega_r$ to incident irradiance $\omega_i$. A simple depiction of this scenario can be found in Figure 2.9.
 
 The BRDF function is often defined in the form
 %
@@ -47,14 +46,14 @@ The BRDF function is often defined in the form
     f_r(\omega_i, \omega_r) = \frac{dL_r(\omega_r)}{dE_i(\omega_i)}
 \end{align}
 %
-Each $\omega$ is a function of azimuth angle $\phi$ and zenith angle $\theta$. The input irradiance and output radiance are measured in units of steradians and are considered in terms of there power per steradian [TODO add units here and check this!!] as shown in Figure .
+Each $\omega$ is a function of azimuth angle $\phi$ and zenith angle $\theta$. The input irradiance and output radiance are measured in units of steradians as shown in Figure 2.10.
 where numerous models have been developed for the functions of $L$ and $E$ \cite{sparrow}\cite{brdfoverview}.  In its simplest case the surface is a purely diffuse reflector of incident light and the BRDF becomes
 %
 \begin{align}
     f_r(\omega_i, \omega_r) = \frac{\rho}{\pi}
 \end{align}
 %
-where $\rho$ is the surface albedo, or proportion of light reflected from a surface \cite{nicodemus} and ranges from $0\leq\rho\leq1$.  A general diagram can be found in Figure.  In the most general case the portion of reflectance that is purely specular can be thought of as a $\delta$ function.  Most surfaces create non-ideal reflections made up of both specular and diffuse components.
+where $\rho$ is the surface albedo, or proportion of light reflected from a surface \cite{nicodemus} and ranges from $0\leq\rho\leq1$.  A general diagram can be found in Figure 2.9.  In the most general case the portion of reflectance that is purely specular can be thought of as a $\delta$ function.  Most surfaces create non-ideal reflections made up of both specular and diffuse components.
 %
 \begin{figure}
     \begin{center}

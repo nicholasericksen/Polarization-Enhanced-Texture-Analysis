@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Grey Level Co-Occurence Matrix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A Grey Level Co-Occurrence Matrix (GLCM) is able to quantify the spatial frequency distribution of grey level pixel intensity pairs. The GLCM matrix is formed by determining the frequency of grey level value pixel pairs for a given image.  A relationship is set a priori to determine the direction for grey level comparison.  This relationship is an angle relating a pixel to its neighbor, and is chosen in multiples of either 0 or 45 degrees.  Common GLCM spatial relationships are $0, \pi/4, 3\pi/4, and \pi/2$ radians.
+A Grey Level Co-Occurrence Matrix (GLCM) is able to quantify the spatial frequency distribution of grey level pixel intensity pairs. The GLCM matrix is formed by determining the frequency of grey level value pixel pairs for a given image.  A relationship is set a priori to determine the direction for grey level comparison.  This relationship is an angle relating a pixel to its neighbor, and is chosen in multiples of either 0 or 45 degrees.  Common GLCM spatial relationships are $0, \pi/4, 3\pi/4$, and $\pi/2$ radians.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -18,7 +18,7 @@ A single relationship Co-Occurence matrix is formulated such that,
 \begin{align}
     \mathbf{\phi}_{ij}(\triangle x,\triangle y) = \sum_{x=0}^{n}\sum_{y=0}^{m}
     \begin{cases}
-        1, if I(x,y) = i  and  I(x+\triangle x,y+\triangle y) = j \\
+        1, if I(x,y) = i \quad \textrm{and} \quad  I(x+\triangle x,y+\triangle y) = j \\
         0, otherwise
     \end{cases}
 \end{align}
@@ -33,8 +33,7 @@ Being defined as referencing one pixel to its neighbor to the right (0 degrees) 
     \caption{Converting a Binary Image to a GLCM Matrix}
     \label{fig:texture}
 \end{figure}
-%[CHECK]
-The example in Figure 2.6 shows the simplest case of a binary image, or an image that only contains white and black pixels.  These pixels values captured by a camera are then converted into there corresponding digital numbers, in this case either zero or one.  With the spatial relationship being defined as one to the right, the GLCM matrix is then formed.
+The example in Figure 2.12 shows the simplest case of a binary image, or an image that only contains white and black pixels.  These pixels values captured by a camera are then converted into there corresponding digital numbers, in this case either zero or one.  With the spatial relationship being defined as one to the right, the GLCM matrix is then formed.
 
 Non symmetrical GLCMs should be symmetrized by adding each to its transpose,
 %

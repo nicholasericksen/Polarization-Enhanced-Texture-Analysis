@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mueller Matrices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Interactions with materials that can create depolarization and model partially polarized input and outputs cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with equation [CHECK add system diagram here with boxes] and shown in Figure.
+Interactions with materials that can create depolarization and model partially polarized input and outputs cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with equation and shown in Figure 2.4.
 \begin{align}
     \mathbf{S}_{out} = \mathbf{M}\mathbf{S}_{in}
 \end{align}
@@ -47,7 +47,6 @@ and describe the diattenuation, depolarization, and retardance of a materials' p
 %    \end{bmatrix}
 %\end{align}
 
-%[CHECK these get bolded]
 \underline{Diattenuation} – the two attenuations of orthogonal polarization states \cite{chipman}
 
 \underline{Retardance} – the phase difference between two orthogonal polarization states \cite{giakos}
@@ -65,7 +64,6 @@ It has been shown that these parameters can be found by determining a sample's c
     \mathbf{Depolarization} = 1 - DOP
 \end{align}
 were $T_{max}$ and $T_{min}$ are the intensity transmittances through a polarizer, $n_1$, $n_2$ and $t$ are the refractive indices and thickness of a retarder \cite{chipman}.
-[CHECK explain these equations or remove them]
 
 For nondepolarizing materials, their MM can be converted into Jones matrices.   Examples of Mueller Matrices for common optical elements can be found in \cite{chipman}.  The general form of a linear polarizer with transmission axis at 0 degrees to the $x$ axis is
 %
@@ -79,7 +77,7 @@ For nondepolarizing materials, their MM can be converted into Jones matrices.   
     \end{bmatrix}
 \end{align}
 %
-where $q$ and $r$ are the attenuation coefficients for the $x$ and $y$ axis [TODO relate this to the later equation showing transmissiona and reflection].
+where $q$ and $r$ are the attenuation coefficients for the $x$ and $y$ axis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mueller Matrix Decomposition}

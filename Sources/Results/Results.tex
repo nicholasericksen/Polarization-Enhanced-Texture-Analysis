@@ -13,7 +13,7 @@
 \section{Optimization of Parameters}
 The histograms that resulted from measuring the S1 and S2 polarization showed evidence of masking and shadowing effects due to macro level surface features.  This caused some pixels to never be illuminated and have a large spike at zero.
 
-Pixels that were never illuminated were removed from the histogram process. These were determined by checking if PH, PV, PP, and PM never had a value more than 0.  This removed the spike at zero.
+Pixels that were never illuminated were removed from the histogram process. These were determined by checking if $P_H, P_V, P_P$, and $P_M$ never had a value more than 0.  This removed the spike at zero.
 
 The free parameters in Support Vector Classification were optimized using the Sklearn grid search module.
 
@@ -37,7 +37,7 @@ Images were acquired for each polarization filter orientation. Red Oak, American
 %
 The principles of reflection and transmission as dictated by Fresnel’s equations show that light reflecting from a specular surface will have higher amounts of polarization than when compared with the diffuse direction.  The S1 component for all leaves showed this response as expected and produced higher amounts of polarization than when compared to their diffuse counterparts.  The S2 component showed itself to have a near zero mean, with some variance.
 
-The histograms for the S1 and S2 parameters comparing different tree leaves were computed for the blue, green and red camera channels.  These individual channels in general are the same as the overall grey level image shown as RGB here, although more distinguished features can be seen in Figure 19 for each individual channel.
+The histograms for the S1 and S2 parameters comparing different tree leaves were computed for the blue, green and red camera channels.  These individual channels in general are the same as the overall grey level image shown as RGB here, although more distinguished features can be seen in Figure 7.2 for each individual channel.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -47,7 +47,7 @@ The histograms for the S1 and S2 parameters comparing different tree leaves were
     \label{fig:polarization}
 \end{figure}
 %
-The blue and red channel show higher amounts of polarization, while the green channel shows the least amount of polarization, across each species.  It has previously been shown, that Rayleigh scattering on a leafs' surface can greatly increase the polarization in the blue spectrum of light [26].  Since plants reflect highly in the green, the green channel shows the lowest amount of polarization.  The blue channel shows the most amount of polarization, although this may be due to the sensitivity of the CMOS sensor as shown in Figure 14 or Rayleigh scattering [26].  The blue channel is extended to regions of red light and therefore is overall more sensitive in the visible region to spectral fluctuations.  Perhaps in the future, the blue channel response should be subtracted from the red channel response, and the blue channel can be normalized using the following ratio,
+The blue and red channel show higher amounts of polarization, while the green channel shows the least amount of polarization, across each species.  It has previously been shown, that Rayleigh scattering on a leafs' surface can greatly increase the polarization in the blue spectrum of light [26].  Since plants reflect highly in the green, the green channel shows the lowest amount of polarization.  The blue channel shows the most amount of polarization, although this may be due to the sensitivity of the CMOS sensor or Rayleigh scattering [26].  The blue channel is extended to regions of red light and therefore is overall more sensitive in the visible region to spectral fluctuations.  Perhaps in the future, the blue channel response should be subtracted from the red channel response, and the blue channel can be normalized using the following ratio,
 %
 \begin{align}
     Blue_{calibration} = Blue - (Blue - Red)
@@ -55,7 +55,7 @@ The blue and red channel show higher amounts of polarization, while the green ch
 %
 Ideally the response of each channel would be carefully calculated using a spectrometer, and overall constants could be provided to normalize the sensitivity in each spectral region.  This requires various narrow band spectral filters.
 
-The S2 histograms in Figure 20 show very little polarization on average.  This is expected polarization angles at 45 and 135 can be decomposed into X and Y components.  It is possible that the S2 component could be useful in understanding the calibration of the linear polarizer to its ideal orientation.  If P and M measurements diverge drastically, it would serve as a notion to investigate the variance further for specular reflections.
+The S2 histograms in Figure 7.3 show very little polarization on average.  This is expected polarization angles at 45 and 135 can be decomposed into $x$ and $y$ components.  It is possible that the S2 component could be useful in understanding the calibration of the linear polarizer to its ideal orientation.  If P and M measurements diverge drastically, it would serve as a notion to investigate the variance further for specular reflections.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -67,11 +67,11 @@ The S2 histograms in Figure 20 show very little polarization on average.  This i
 %
 The specular direction of observation and incident angle at the Brewster angle creates the highest amount of polarized light on an ideal smooth surface.  Leaves can also be seen to similarly have specular components that correlate to the surface topology.
 
-A GLCM texture analysis was also performed on each sample extracted to determine the dissimilarity, contrast, entropy, and correlation. Due to each of the GLCM features being generated from the same initial matrix, many of the features show high levels of correlation.  In general, a measure should be taken from the orderliness group, contrast group and descriptive statistics group. It has previously been shown [mayer source] that a textures dissimilarity and correlation show low levels of correlation.  Therefore, they are plotted here to represent the texture in 2 dimensions.
+A GLCM texture analysis was also performed on each sample extracted to determine the dissimilarity, contrast, entropy, and correlation. Due to each of the GLCM features being generated from the same initial matrix, many of the features show high levels of correlation.  In general, a measure should be taken from the orderliness group, contrast group and descriptive statistics group. It has been shown that a textures dissimilarity and correlation show low levels of correlation.  Therefore, they are plotted here to represent the texture in 2 dimensions.
 
 Although these features contain information regarding the texture of a surface, it is often difficult to determine what actually causes each metric to arise when describing specific surface GLCM properties \cite{haralick}.
 
-Figure 21 shows the texture of the leaves above for the V filter orientation.  It shows that each species exhibits its own unique texture that helps to visually create clusters, and therefore should prove useful for classification.
+Figure 7.4 shows the texture of the leaves above for the V filter orientation.  It shows that each species exhibits its own unique texture that helps to visually create clusters, and therefore should prove useful for classification.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -96,9 +96,9 @@ As leaves start to undergo pigment breakdown and decomposition, the surfaces of 
     \label{fig:specular-raw-decompose}
 \end{figure}
 %
-Close inspection Figure 22 and Figure 21 show that the new leaf is a darker green in color and has a smoother surface than the oak leaf after 1 week.  The smooth, thick wax surface as it ages from week 0 to week 1, becomes flatter and segmentation of structures on the leaf surface becomes more evident.
+Close inspection Figure 7.5 show that the new leaf is a darker green in color and has a smoother surface than the oak leaf after 1 week.  The smooth, thick wax surface as it ages from week 0 to week 1, becomes flatter and segmentation of structures on the leaf surface becomes more evident.
 
-Recording the leaves after one week to illustrate changes during decomposition and water loss for red oak can be seen in Figure 24.  It should be noted that the blue channel contains a large amount of polarization after one week. In some cases, it has been seen to even exceed its 0-week counterpart. This may be due to the absorbance spectrum of chlorophyll and the lack of photosynthetic activity during decomposition. The overall S1 image shows the 0 week has higher polarization in S1 as its surface is more of a pure specular reflector.
+Recording the leaves after one week to illustrate changes during decomposition and water loss for red oak can be seen in Figure 7.6.  It should be noted that the blue channel contains a large amount of polarization after one week. In some cases, it has been seen to even exceed its 0-week counterpart. This may be due to the absorbance spectrum of chlorophyll and the lack of photosynthetic activity during decomposition. The overall S1 image shows the 0 week has higher polarization in S1 as its surface is more of a pure specular reflector.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -118,7 +118,7 @@ Recording the leaves after one week to illustrate changes during decomposition a
 %
 Again S2 only shows a slight variation even after re-measuring the leaf one week later.
 
-The results of GLCM analysis for the P filter component can be found in Figure 26.  Visual inspection of the GLCM scatter plot shows the best clustering using the P filter for this particular example.  The full GLCM filter set can be found in the Appendix.
+The results of GLCM analysis for the P filter component can be found in Figure 7.8.  Visual inspection of the GLCM scatter plot shows the best clustering using the P filter for this particular example.  The full GLCM filter set can be found in the Appendix.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -135,7 +135,7 @@ Classification was performed on datasets created by combining texture samples fr
 
 The confusion matrix also shows the high level of accuracy when using ten fold stratified K fold validation.  It can be seen that the highest accuracy of classification is when American ash is considered versus Maple or Oak.  Visual inspection of each type of leaf shows the similarity between Oak and Maple when viewed under a microscope, so this result is not unexpected.
 
-A learning curve was also generated for the results of using both texture and polarization features and is shown in Figure 28.  As the number of training samples increases, the score of the classifier remains the same.  This shows the low amount of training bias within the model created from our samples. Future samples should be collected and compared to further validate these results.
+A learning curve was also generated for the results of using both texture and polarization features and is shown in Figure 7.10.  As the number of training samples increases, the score of the classifier remains the same.  This shows the low amount of training bias within the model created from our samples. Future samples should be collected and compared to further validate these results.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -223,7 +223,7 @@ It can be seen that combining both polarization and texture features for classif
     \label{fig:specular-raw}
 \end{figure}
 %
-Leaves from each species of tree were acquired at 0 degrees from the normal for the plane of incidence.  Examples of each leaf captured through the H filter can be found in Figures 28, 29, and 30.
+Leaves from each species of tree were acquired at 0 degrees from the normal for the plane of incidence.  Examples of each leaf captured through the H filter can be found in Figure 7.11.
 
 The diffuse component of reflectance of a leaf is often thought of as being unpolarized.  This assumption if based on a perfect Lambertian diffuse surface, which is often not the case.  Although the portion of polarized light in the diffuse region of reflection is less than that of the specular portion, it cannot be discarded, as it may contain important information as to the biological and physiological processes within the leaf's internal structure.
 
@@ -231,7 +231,7 @@ As photons undergo multiple scattering processes and absorption and reemission b
 
 Our results show that although the mean is centered around zero for S1, the S2 component shows various degrees of polarization.  These may be due to multiple scattering mechanisms within the layers of the leaf.
 
-The diffuse portion of polarization for each species is shown in Figure 32.
+The diffuse portion of polarization for each species is shown in Figure 7.12.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -245,7 +245,7 @@ It can be seen that many of the leaves exhibit little to no S1 polarization.  Th
 
 The polarization can bee seen to be highest in the red and blue where absorption of photons by chlorophyll in the mesophyll layer of the leaf is most prominent.  Structures such as veins may also cause unknown polarization states to result.  Care should be taken when composing images as to what structures are desired for inspection.
 
-The distribution between species in S2 are distributed around different means and variances are as shown in Figure 33.
+The distribution between species in S2 are distributed around different means and variances are as shown in Figure 7.13.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -255,7 +255,7 @@ The distribution between species in S2 are distributed around different means an
     \label{fig:polarization}
 \end{figure}
 %
-A GLCM analysis in the diffuse direction for all species shows visually distinct clustering.  GLCM dissimilarity and correlation for diffuse scattering can be found in Figure 34.
+A GLCM analysis in the diffuse direction for all species shows visually distinct clustering.  GLCM dissimilarity and correlation for diffuse scattering can be found in Figure 7.14.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -280,7 +280,7 @@ As the breakdown of the leaf occurs, fewer photons are utilized for photosynthes
 %
 The images above show that in the diffuse direction for Red Oak freshly removed, there are numerous micro segmentations on the leaf surface that were not evident in the specular direction.  These complex wax structures increase the amount of multiple scattering.  As the leaf decomposes, the micro segmentations become less evident as the larger structures become the most prevalent feature on the surface.
 
-Figure 37 and Figure 38 show's the S1 and S2 polarization in the diffuse direction for a Red Oak leaf as it undergoes the decomposition.
+Figure 7.16 and Figure 7.17 show's the S1 and S2 polarization in the diffuse direction for a Red Oak leaf as it undergoes the decomposition.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -304,7 +304,7 @@ There is S2 polarization that arises from each specimen, and it is shown to be h
 
 As the composition of a leaf changes, more polarization results as an effect of the physiological breakdown causes less absorption and more volume scattering.  Although diffuse surfaces are supposed to create equal amounts of randomized polarized states, resulting in no overall polarization, it is shown here that in some cases the diffuse portion is polarized, especially in the S2 component.  This information could potentially be useful for determining physiological properties of leaves.
 
-The GLCM in the diffuse direction shows that as the wax structure becomes less filled with water and decompresses, the surface of the leaf appears smoother, since there is less noise caused by multiple scattering through the thicker wax cuticle of the fresh leaves.  The result is that healthier leaves create more dissimilarity for the captured images.  This is shown in Figure 39.
+The GLCM in the diffuse direction shows that as the wax structure becomes less filled with water and decompresses, the surface of the leaf appears smoother, since there is less noise caused by multiple scattering through the thicker wax cuticle of the fresh leaves.  The result is that healthier leaves create more dissimilarity for the captured images.  This is shown in Figure 7.18.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -323,7 +323,7 @@ The confusion matrix shows that ash is the most correctly identified class, with
 
 The learning curve shows good results as more samples are added, but towards the end shows the score decreases slightly.  Additional samples should be investigated to ensure the validity of this model.
 
-Overall the model proves to be accurate and give the desired results [TODO explain].
+Overall the model does show correlation between each species texture and polarization characteristics.  This is indicated by high accuracy in classification as shown by the confusion matrix and the precision scores seen in Table 7.4.
 %
 \begin{figure}[!htb]
     \begin{center}
@@ -398,7 +398,7 @@ Overall the model proves to be accurate and give the desired results [TODO expla
 %
 Comparison of with the use of in Table limited feature sets, shows again that texture combined with polarization returns better results than if only one were used.  Overall classification in the diffuse direction was slightly less accurate than that of our specular measurements.
 
-In the future principal component analysis should be utilized to isolate the top parameters for each group in order to eliminate any bias that is caused from there being more polarization features than texture features. An additional image should be acquired with no polarization filter in place, to represent S0 and create a better mark for texture feature only comparison.
+In the future principal component analysis should be utilized to isolate the top parameters for each group in order to eliminate any bias that is caused from there being more polarization features than texture features. An additional image should be acquired with no polarization filter in place, to represent $S_0$ and create a better mark for texture feature only comparison.
 
 \section{Regression}
 Previous results show that classification between species can be performed with high levels of accuracy even if a large amount of interclass variance exists due to varying physiological states of each leaf.  Therefore, investigation into acquiring more accurate measures as to the plants' current physiological state, such as water and pigment concentration, would be useful for a more detailed explanation of previous results.
@@ -407,13 +407,13 @@ Determining the relationship between the relative water content of a plant's lea
 
 The y dependent variable was determined by measuring the relative water content of the Devils Ivy plant using the procedure previously described.  Samples were extracted from each polarization filter for the purpose of GLCM analysis.  The average dissimilarity, contrast, energy and correlation of 100 samples randomly selected from the entire image were utilized to quantify the texture of each individual leaf at different levels of RWC.  The S1 and S2 polarizance parameters were also calculated for each individual pixel. Each pixel was binned together to create histograms for S1 and S2.  The probabilities for 20 bins ranging from -1 to 1 were utilized to determine the polarization component of each sample.
 
-Principal component analysis was utilized to extract the most useful features for plotting against the RWC.  The principal component can be seen plotted against RWC for the specular case in Figure 42.
+Principal component analysis was utilized to extract the most useful features for plotting against the RWC.  The principal component can be seen plotted against RWC for the specular case in Figure 7.21.
 %
 \begin{figure}[!htb]
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/rwc-regression.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.65]{/Sources/Results/rwc-regression.png}}
     \end{center}
-    \caption{Linear Regression for RWC and 1st principal component}
+    \caption{Linear Regression for RWC and 1st principal component - Specular}
     \label{fig:polarization}
 \end{figure}
 %
@@ -434,10 +434,31 @@ Principal component analysis was utilized to extract the most useful features fo
   \label{tab:Packages}
 \end{table}
 %
-Analyzing the specular polarization and extracting texture features showed good results [TODO why? what exactly are results].  The classifier was cross validated using K fold validation with 10 folds.  The performance of the classifier is summarized in Table.
-%todo add table and explain each attribute
-The root mean squared shows the accuracy [TODO explain accuracy] to be within 0.5% of the actual value for the predicted linear model.  The classifier was initialized with the parameters
-%TODO add code
-These parameters were acquired by performed a grid search that optimizes for the root mean square error.
-
-Further data is required to more accurately fit this model, although the initial results are promising.
+Analyzing the specular polarization and extracting texture features showed high levels of correlation for biological regression problems with an $r^2$ of 0.376.  The classifier was cross validated using K-fold validation with 10 folds.  The performance of the classifier is summarized in Table.
+The root mean squared shows the accuracy to be within 0.5% of the actual value for the predicted linear model. Further data is required to more accurately fit this model, although the initial results are promising.
+%
+The diffuse direction did not have as much usefulness in determining the RWC for the data that was acquired and tested.  The $r^2$ value was nearly zero, meaning the $Y$ values could not be explained by the input $X$ variables for the linear relationship tested. Figure 7.22 shows this poor relationship.  Further analysis and data reduction techniques could be applied to further analysis any potential relationship between texture, polarization and relative water content.
+\begin{figure}[!htb]
+    \begin{center}
+        \makebox[\textwidth]{\includegraphics[scale=0.65]{/Sources/Results/rwc-diffuse.png}}
+    \end{center}
+    \caption{Linear Regression for RWC and 1st principal component - Diffuse}
+    \label{fig:polarization}
+\end{figure}
+%
+%
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Metric} & \textbf{Score}\\
+    \midrule
+      \texttt{r2} & 4.178e-06 \\
+      \texttt{RMS} & 1.126 \\
+    \bottomrule
+  \end{tabular}
+  \caption{%
+    Scores for Regression in the Diffuse Direction
+  }
+  \label{tab:Packages}
+\end{table}
