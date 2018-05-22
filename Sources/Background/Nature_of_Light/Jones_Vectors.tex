@@ -48,17 +48,48 @@ The Jones vector can then be written in terms of a single angle
     \end{bmatrix}
 \end{align}
 %
-General states of linear polarization are represented as
+General states of linear polarization are represented when the phase delay between the $x$ and $y$ components are zero. This is shown in general as
 %
 \begin{align}
     \underline{J_0}(\psi) =
+    \begin{bmatrix}
+        cos(\psi) \\
+        sin(\psi)e^{j*0}
+    \end{bmatrix}
+    =
     \begin{bmatrix}
         cos(\psi) \\
         sin(\psi)
     \end{bmatrix}
 \end{align}
 %
-where $\psi$ is any angle in relation to the X axis.  Circular polarization is represented as
+where $\psi$ is any angle in relation to the X axis. For horizontal and vertical polarization it can be shown that
+%
+\begin{align}
+    \underline{J_0}(0) = \underline{J_H} =
+    \begin{bmatrix}
+        cos(0) \\
+        sin(0)
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+\end{align}
+\begin{align}
+    \underline{J_0}(90) = \underline{J_V} =
+    \begin{bmatrix}
+        cos(\frac{\pi}{2}) \\
+        sin(\frac{\pi}{2})
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}
+\end{align}
+Circular polarization is represented as
 %
 \begin{align}
     RCP: \underline{J}_{\frac{\pi}{2}} = \frac{1}{\sqrt{2}}
@@ -102,7 +133,7 @@ and
     \end{pmatrix}
 \end{align}
 %
-The general equation for Jones interaction with a linear polarizer is
+The general equation for Jones interaction with an orthogonal linear polarizer is
 %
 \begin{align}
     P(\psi)\underline{J}_{in} = \underline{J}_{out}
@@ -123,8 +154,8 @@ The general equation for Jones interaction with a linear polarizer is
     \end{pmatrix}
 \end{align}
 \begin{align}
-    -asin(\psi) + bcos(\psi) = 0 \rightarrow atan(\psi) \\
-    -csin(\psi) = dcos(\psi) = 0 \rightarrow ctan(\psi)
+    -asin(\psi) + bcos(\psi) = 0 \rightarrow atan(\psi) = b \\
+    -csin(\psi) = dcos(\psi) = 0 \rightarrow ctan(\psi) = d
 \end{align}
 %
 When the incident polarization state is aligned with the polarizers TA, it must also be true that the incident beam goes through the device unchanged.  Therefore,
@@ -177,7 +208,7 @@ The intensity of light emerging from a polarizer is governed by Malus law,
     I = I_0cos^2(\theta_i)
 \end{align}
 %
-where $I$ is the intensity of the exiting beam, $I_0$ is the intensity of the incident beam and $\theta_i$ is the angle between the incident polarization state, and the angle of the polarizer.   For incident unpolarized light the equation becomes $I / I_0 = \frac{1}{2}$.  Therefore, the maximum transmittance for an unpolarized beam of light through a polarizer is 50%.  This number is significantly lower for polaroid film based polarizers and can cause potential problems with detector sensitivity for low lighting conditions.
+where $I$ is the intensity of the exiting beam, $I_0$ is the intensity of the incident beam and $\theta_i$ is the angle between the incident polarization state, and the angle of the polarizer.   For incident unpolarized light the equation becomes $I / I_0 = \frac{1}{2}$.  Therefore, the maximum transmittance for an unpolarized beam of light through a polarizer is \text{50\%}.  This number is significantly lower for polaroid film based polarizers and can cause potential problems with detector sensitivity for low lighting conditions.
 
 Wave plates create a phase delay between the fast and slow axis of incident linearly polarized light.  Its generalized Jones matrix form can be denoted with a relative phase delay $\delta=\delta_y-\delta_x$,
 \begin{align}

@@ -11,7 +11,7 @@
   \vspace{0.5cm}
 \end{center}
 
-After acquiring the necessary images for calculation of a leafs' polarizance, features were extracted from the images in each color channel for texture and polarization analysis.  These features were extracted using various Python programming modules. 100 samples were extracted from each image to randomly create a training and testing set of data.  Diffuse and specular datasets were processed separately.
+After acquiring the necessary images for calculation of a leafs' polarizance, features were extracted from the images in each color channel for texture and polarization analysis.  These features were extracted using various Python programming modules. One hundred samples were extracted from each image to randomly create a training and testing set of data.  Diffuse and specular datasets were processed separately.
 
 In order to create testing and training data, samples were extracted from each polarization image $H, V, P$ and $M$ using code found in Figure 5.1.  Each sample was extracted into three different color channels; red, green and blue.
 
@@ -39,7 +39,7 @@ In order to create testing and training data, samples were extracted from each p
     \label{fig:scattering}
 \end{figure}
 
-This type of function mentioned in Figure 5.1 can be used to extract sample patches from all three (BGR) color channels. Features can then be extracted from each of the color samples.  An example grey level histogram and image for each individual color channel through an H polarization filter can be found in Figure 5.2, 5.3 and 5.4.
+This type of function mentioned in Figure 5.1 can be used to extract sample patches from all three (BGR) color channels. Features can then be extracted from each of the color samples.  An example grey level histogram and image for each individual color channel through an H polarization filter can be found in Figures 5.2, 5.3 and 5.4.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.35]{/Sources/Feature_Extraction/di-H-blue-sample-hist.png}}
@@ -58,10 +58,10 @@ This type of function mentioned in Figure 5.1 can be used to extract sample patc
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.33]{/Sources/Feature_Extraction/di-H-red-sample-hist.png}}
     \end{center}
-    \caption{Devils Ivy Green Channel H Filter Histogram}
+    \caption{Devils Ivy Red Channel H Filter Histogram}
     \label{fig:polarization}
 \end{figure}
-The corresponding V filter channels are found in Figure 5.5, 5.6 and 5.7 for a 75x75 pixel sample of Devils Ivy.
+The corresponding V filter channels are found in Figures 5.5, 5.6 and 5.7 for a 75x75 pixel sample of Devils Ivy.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.35]{/Sources/Feature_Extraction/di-V-blue-sample-hist.png}}
@@ -83,7 +83,7 @@ The corresponding V filter channels are found in Figure 5.5, 5.6 and 5.7 for a 7
     \caption{Devils Ivy Red Channel V Filter Histogram}
     \label{fig:polarization}
 \end{figure}
-Each of the samples were processed using pixel based analysis, to calculate their Stokes vector as well as various GLCM metrics.  Pixels that were never illuminated were filtered out of the polarization analysis since they artificially inflated the zero mean of the produced histograms.  Polarization is not the same as light intensity and polarization can not be determined without some illumination on the target.  The Stokes vector was therefore calculated the code in Figure 5.8 where P1 and P2 represent orthogonal flux measurements through a linear polarizer.
+Each of the samples were processed using pixel based analysis, to calculate their Stokes vector as well as various GLCM metrics.  Pixels that were never illuminated were filtered out of the polarization analysis since they artificially inflated the zero mean of the produced histograms.  Polarization is not the same as light intensity and polarization cannot be determined without some illumination on the target.  The Stokes vector was calculated using the code in Figure 5.8 where P1 and P2 represent orthogonal flux measurements through a linear polarizer.
 %
 \begin{figure}
     \begin{lstlisting}
@@ -143,7 +143,7 @@ The resulting polarization histograms for a Devils Ivy sample can be found in Fi
 \end{figure}
 Window-based GLCM texture analysis was similarly performed on each of the extracted samples.  The dissimilarity, correlation, contrast and entropy were calculated for each GLCM.  The window size for GLCM was manually optimized by testing clustering effects for 5px, 9px, 25px, 55px, 75px, and 95px window sizes.  A window size of 75 pixels was found to be ideal for this experimental design.
 
-In addition to performing a polarization based analysis on each color channel of the extracted samples, a GLCM texture analysis was also performed.  The dissimilarity, contrast, correlation and energy were calculated for each sample window.  The following code was used for these calculations,
+In addition to performing a polarization based analysis on each color channel of the extracted samples, a GLCM texture analysis was also performed.  The dissimilarity, contrast, correlation and energy were calculated for each sample window.  The code in Figure 5.11 was used for these calculations,
 \begin{figure}
     \begin{lstlisting}
         def extract_texture(samples):
@@ -171,7 +171,7 @@ In addition to performing a polarization based analysis on each color channel of
 
             return np.array(texture)
     \end{lstlisting}
-    \caption{noobee code for Jones Vectors}
+    \caption{Code to Extract GLCM Features From Texture Samples}
     \label{fig:scattering}
 \end{figure}
 The metrics derived from the GLCM matrix can be plotted in various scatterplots as demonstrated in the Results chapter and Appendix. Data was exported to .csv files for future processing and analysis in Support Vector Machine classification and linear regression.

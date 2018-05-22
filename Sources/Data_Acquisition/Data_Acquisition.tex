@@ -11,7 +11,7 @@
   \vspace{0.5cm}
 \end{center}
 
-Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low of 0.02 percent. The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  In real world applications any ambient light should be accounted for using radiometric calibration techniques, or other correction methods.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
+Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low, 0.02 \text{\%}. The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  In real world applications any ambient light should be accounted for using radiometric calibration techniques or other correction methods.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measurement of Stokes Parameters}
@@ -40,7 +40,7 @@ It is shown in \cite{chipman} that the Stokes parameter of a beam can be general
 %
 where $P_H, P_V, P_P, P_M, P_R$ and $P_L$ represent flux measurements recorded through filters that extinguish orthogonal polarization states.
 
-For most natural and man made objects the reflections are assumed to contain little or no circular polarization. The last row of the Stokes vector is therefore left out of the discussion and the equation becomes
+For most natural and man made objects, the reflections are assumed to contain little or no circular polarization. The last row of the Stokes vector is therefore left out of the discussion and the equation becomes
 %
 \begin{align}
     \mathbf{S} =
@@ -64,7 +64,7 @@ The linear elements of the Stokes vector can be determined using just a linear p
 %  \makebox[\textwidth]{\includegraphics[width=8cm]{Sources/Background/Data_Acquisition/exper_setup.png}}
 %\end{center}
 %
-The linear polarizer was calibrated using a polarizer of known axis orientation.  The calibration polarizer was kept with its axis constant to the S plane of the material.  The lens of the measurement polarizer was rotated until a null intensity was reached and the axis of transmission for the polarizer was orthogonal to that of the calibration polarizer.  The polarizer has a known extinction ratio of 19 and a polarization of 95% efficiency.  The spectral response across the visible spectrum is shown in Figure 4.1.  It shows that the polarizer produces a constant response across the visible range of the energy spectrum.
+The linear polarizer was calibrated using a polarizer of known axis orientation.  The calibration polarizer was kept with its axis constant to the S plane of the material.  The lens of the measurement polarizer was rotated until a null intensity was reached and the axis of transmission for the polarizer was orthogonal to that of the calibration polarizer.  The polarizer has a known extinction ratio of 19 and a polarization of \text{95\%} efficiency.  The spectral response across the visible spectrum is shown in Figure 4.1.  It shows that the polarizer produces a constant response across the visible range of the energy spectrum.
 
 \begin{figure}[!htb]
     \begin{center}
@@ -84,7 +84,7 @@ For centuries the only photo detector available to those in the field of optics 
 
 A single pixel is not enough to capture texture.  Multiple measurements need to be made using a single pixel in order to quantify a region of space around the surface, denoted by the units of steradians in the BRDF models.  Multi-pixel detectors with a larger field of view allow for multiple features and texture to be captured in an image.
 
-A camera is made up of a pattern of multiple silicon photo detectors and filters.  The most common filter arrangement is that of a Bayer filter.  This pattern consists of red, green, and blue spectral filters arranged as shown in Figure 4.2.
+A camera is made up of a pattern of multiple silicon photodetectors and filters.  The most common filter arrangement is that of a Bayer filter.  This pattern consists of red, green, and blue spectral filters arranged as shown in Figure 4.2.
 \begin{figure}[!htb]
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.5]{/Sources/Data_Acquisition/bayerfilter-v2.png}}
@@ -93,9 +93,9 @@ A camera is made up of a pattern of multiple silicon photo detectors and filters
     \label{fig:polarization}
 \end{figure}
 %
-The individual intensities from each of these filters are combined with the camera to create a 3 channel RGB representation of the image scene.  Each channel represents the intensity of a given pixel for the color filter in the Bayer pattern.
+The individual intensities from each of these filters are combined with the camera to create a three-channel RGB representation of the image scene.  Each channel represents the intensity of a given pixel for the color filter in the Bayer pattern.
 
-Single and multi-pixel devices have been utilized in Polarimetry for different applications.  A camera was utilized for these experiments as it provides information on texture, as well as an ability to distinguish features in each of the spectral color channels.
+Single and multi-pixel devices have been utilized in Polarimetry for different applications.  A camera was utilized for these experiments as it provides information on texture as well as an ability to distinguish features in each of the spectral color channels.
 
 The intensity values for each RGB channel of an image can easily be extracted using the OpenCV python package.  Note that OpenCV actually holds images in reverse order as BGR.
 
@@ -110,11 +110,11 @@ The steps for determining the RWC involve weighing the leaf in its current water
 
 2.	Weigh leaf to acquire the Fresh Leaf Weight (FW)
 
-3.	Place leaf petiole in solution of distilled water and CaCl2 at 2mM for at least 8 hours
+3.	Place leaf petiole in solution of distilled water and ${CaCl}_2$ at 2mM for at least 8 hours
 
 4.	Weigh leaf to acquire Turgid Weight (TW)
 
-5.	Place leaf in an oven at 60oC for 4 days
+5.	Place leaf in an oven at 60 \textdegree C for 4 days
 
 6.	Weigh leaf to acquire the Dry Weight (DW)
 
@@ -131,7 +131,7 @@ Note that the scale used for weighing needs to have at least 4 decimal places to
   \centering
   \begin{tabular}{lllll}
     \toprule
-    \textbf{Leaf} & \textbf{TFW} & \textbf{TW} & \textbf{DW} & \textbf{RWC} \\
+    \textbf{Leaf} & \textbf{TFW (g)} & \textbf{TW (g)} & \textbf{DW(g)} & \textbf{RWC \%} \\
     \midrule
       \texttt{11} & 2.7931 & 2.8335 & 0.2472 & 98.4379 \\
       \texttt{12} & 2.0883 & 2.1184 & 0.1876 & 98.4411 \\
@@ -178,7 +178,7 @@ Note that the scale used for weighing needs to have at least 4 decimal places to
     \bottomrule
   \end{tabular}
   \caption{%
-    Measurements for RWC Experiment
+    Measurements for RWC Experiment using Equation 4.3
   }
   \label{tab:Packages}
 \end{table}

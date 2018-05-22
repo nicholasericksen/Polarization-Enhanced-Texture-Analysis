@@ -46,7 +46,7 @@ Rearranging and squaring both sides results in
 The factorization of this equation can be rearranged into the standard form of an ellipse such that
 %
 \begin{align}
-    \frac{E_x (t)^2}{E_{0x}^2} +\frac{E_y (t)^2}{E_{0y}^2} -2 \frac{E_x E_y}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
+    \frac{E_x (t)^2}{E_{0x}^2} +\frac{E_y (t)^2}{E_{0y}^2} -2 \frac{E_x (t) E_y (t)}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
 \end{align}
 %
 And is graphed as seen in Figure 2.2.
@@ -64,13 +64,13 @@ Due to the restraints of modern optical sensors, it is not possible to directly 
 Starting from the equation for the polarization ellipse, taking the time average of the E field results in
 %
 \begin{align}
-    \frac{E_x (t)^2}{E_{0x}^2} + \frac{E_y (t)^2}{E_{0y}^2} - \frac{2 E_x (t) E_y (t)}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
+    \frac{<E_x (t)^2>}{E_{0x}^2} + \frac{<E_y (t)^2>}{E_{0y}^2} - \frac{<2 E_x (t) E_y (t)>}{E_{0x} E_{0y} } cos(\delta)=sin^2 (\delta)
 \end{align}
 %
 the time averages are calculated as
 %
 \begin{align}
-    <E_x (t)^2> = lim_{T \rightarrow \infty} \int_{0}^{2\pi} E_{0x} cos(\tau)  d\tau=\frac{1}{2} E_{0x}^2
+    <E_x (t)^2> = lim_{T \rightarrow \infty} \int_{0}^{2\pi} (E_{0x} cos(\tau))^2  d\tau=\frac{1}{2} E_{0x}^2
 \end{align}
 %
 and similarly
@@ -112,20 +112,20 @@ The degree of polarization for an EM wave is the magnitude of the Stokes vector 
     \alpha =DOP=  \frac{\sqrt{S_1^2+S_2^2+S_3^2 }}{S_0}
 \end{align}
 %
-and ranges from 0 for unpolarized light, to 1 for completely polarized light.  It is possible to show the polarized and unpolarized intensities as individual components
+and ranges from zero for unpolarized light, to one for completely polarized light.  It is possible to show the polarized and unpolarized intensities as individual components
 summed together as
 %
 \begin{align}
     S=S_P+S_U=
     \begin{bmatrix}
-        S_0 \\
+        S_0 DOP \\
         S_1 \\
         S_2 \\
         S_3
     \end{bmatrix}
     +(1-DOP)
     \begin{bmatrix}
-        1 \\
+        S_0 \\
         0 \\
         0 \\
         0
@@ -149,7 +149,7 @@ Note the unpolarized light is represented as
         S_2 \\
         S_3
     \end{bmatrix}
-    =
+    = S_0
     \begin{bmatrix}
         1 \\
         0 \\
@@ -158,7 +158,7 @@ Note the unpolarized light is represented as
     \end{bmatrix}
 \end{align}
 %
-The Stokes parameters can be graphed on a unit sphere, known as the Poincare sphere.  The sphere plots the radial coordinates describing ellipticity and eccentricy of the polarization ellipse as angles of
+The Stokes parameters can be graphed on a three-dimensional unit sphere, known as the Poincare sphere. The sphere is only capable of showing the polarized portion of the EM wave.  Prior to normalization, if the EM wave is not fully polarized, the intensity of the polarized beam must be normalized in relation to the total beam intensity. The sphere plots the radial coordinates describing ellipticity and eccentricy of the polarization ellipse as angles of
 %
 \begin{align}
     Ellipicity = \frac{S_3}{S_0+\sqrt{S_1^2+S_2^2 }}
@@ -169,7 +169,6 @@ The Stokes parameters can be graphed on a unit sphere, known as the Poincare sph
 %
 The ellipticity of the polarization ellipse varies from 0, for linearly polarized light, to 1 for purely circular polarization \cite{chipman}.
 %
-For	graphical representation, Stokes vectors can be plotted on a 3-dimensional sphere known as the Poincare sphere. The sphere is only capable of showing the polarized portion of the EM wave.  Prior to normalization, if the EM wave is not fully polarized, the intensity of the polarized beam must be normalized in relation to the total beam intensity.
 %
 \begin{figure}[!htb]
     \begin{center}

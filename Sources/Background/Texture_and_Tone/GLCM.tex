@@ -86,11 +86,11 @@ The dissimilarity of the example binary image can be calculated as
 %
 \begin{align}
     Diss = \sum_{i=0}^{N-1}\sum_{j=0}^{N-1}|i-j|P_{ij}
-    = \sum_{1=0}^{1}|i|P_{i0}+|i-1|P_{i1}
+    = \sum_{i=0}^{1}|i|P_{i0}+|i-1|P_{i1}
     = 0 + P_{01} + 0 + P_{10} = \frac{1}{3}
 \end{align}
 %
-Statistical measures utilize each individual element of the GLCM as weights to determine the moments of the probability distribution matrix. The mean, variance, correlation, etc. are not measures of individual pixel intensity values, but rather of the intensity of a pixel in relation to its neighbor’s intensity. The mean is the first central moment and is defined by
+Statistical measures utilize each individual element of the GLCM as weights to determine the moments of the probability distribution matrix. The mean, variance, correlation, etc. are not measures of individual pixel intensity values but rather of the intensity of a pixel in relation to its neighbor’s intensity. The mean is the first central moment and is defined by
 %
 \begin{align}
     \mu_i = \sum_{i=0}^{N-1}\sum_{j=0}^{N-1}iP_{ij} \\
@@ -124,7 +124,7 @@ If a the GLCM is symmetric, the x and y means and variances are equal and the eq
     Corr = \sum_{i=0}^{N-1}\sum_{j=0}^{N-1}(\frac{(i-\mu)(j-\mu)}{\sigma^2})
 \end{align}
 %
-Measures of orderliness are quantified by the amount of entropy and energy within an image.  Entropy is a measure of randomness in a system.  In thermodynamics, it is the heat lost when a reaction occurs and hence is a measure of disorder.  Energy is a measure of useful work that can occur due to the non random nature of the energy in a system. (clean up this bit on entropy)
+Measures of orderliness are quantified by the amount of entropy and energy within an image.  Entropy is a measure of randomness in a system.  In thermodynamics, it is the heat lost when a reaction occurs and hence is a measure of disorder.  Energy is a measure of useful work that can occur due to the non random nature of the energy in a system.  So for an image, higher randomness in the grey level tones of neighboring pixels results in a higher amount of entropy for the GLCM matrix associated with the image.
 
 The angular second moment (ASM) describes the amount of “inertia” around a pixel neighbor relationship and is defined as,
 %

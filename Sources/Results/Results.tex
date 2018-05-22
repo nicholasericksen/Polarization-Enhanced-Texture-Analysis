@@ -39,13 +39,14 @@ The principles of reflection and transmission as dictated by Fresnel’s equatio
 
 The histograms for the S1 and S2 parameters comparing different tree leaves were computed for the blue, green and red camera channels.  These individual channels in general are the same as the overall grey level image shown as RGB here, although more distinguished features can be seen in Figure 7.2 for each individual channel.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/721/allhistpolarization.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/721/allhistpolarization-v2.png}}
     \end{center}
     \caption{All plants specular observed direction for each RGB channelization 0 week for S1}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
+%
 %
 The blue and red channel show higher amounts of polarization, while the green channel shows the least amount of polarization, across each species.  It has previously been shown, that Rayleigh scattering on a leafs' surface can greatly increase the polarization in the blue spectrum of light [26].  Since plants reflect highly in the green, the green channel shows the lowest amount of polarization.  The blue channel shows the most amount of polarization, although this may be due to the sensitivity of the CMOS sensor or Rayleigh scattering [26].  The blue channel is extended to regions of red light and therefore is overall more sensitive in the visible region to spectral fluctuations.  Perhaps in the future, the blue channel response should be subtracted from the red channel response, and the blue channel can be normalized using the following ratio,
 %
@@ -57,14 +58,13 @@ Ideally the response of each channel would be carefully calculated using a spect
 
 The S2 histograms in Figure 7.3 show very little polarization on average.  This is expected polarization angles at 45 and 135 can be decomposed into $x$ and $y$ components.  It is possible that the S2 component could be useful in understanding the calibration of the linear polarizer to its ideal orientation.  If P and M measurements diverge drastically, it would serve as a notion to investigate the variance further for specular reflections.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/721/all-s2-polarization.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/721/all-s2-polarization-v2.png}}
     \end{center}
     \caption{All plants RGB channels observed from the specular direction 0 week for S2}
     \label{fig:polarization}
-\end{figure}
-%
+\end{sidewaysfigure}
 The specular direction of observation and incident angle at the Brewster angle creates the highest amount of polarized light on an ideal smooth surface.  Leaves can also be seen to similarly have specular components that correlate to the surface topology.
 
 A GLCM texture analysis was also performed on each sample extracted to determine the dissimilarity, contrast, entropy, and correlation. Due to each of the GLCM features being generated from the same initial matrix, many of the features show high levels of correlation.  In general, a measure should be taken from the orderliness group, contrast group and descriptive statistics group. It has been shown that a textures dissimilarity and correlation show low levels of correlation.  Therefore, they are plotted here to represent the texture in 2 dimensions.
@@ -73,9 +73,9 @@ Although these features contain information regarding the texture of a surface, 
 
 Figure 7.4 shows the texture of the leaves above for the V filter orientation.  It shows that each species exhibits its own unique texture that helps to visually create clusters, and therefore should prove useful for classification.
 %
-\begin{figure}[!htb]
+\begin{figure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/721/all_glcm.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.375]{/Sources/Results/glcm/specular/V-filter-all-species-rgb.png}}
     \end{center}
     \caption{V filter GLCM dissimilarity and correlation for all species in the specular direction week 0}
     \label{fig:polarization}
@@ -100,29 +100,29 @@ Close inspection Figure 7.5 show that the new leaf is a darker green in color an
 
 Recording the leaves after one week to illustrate changes during decomposition and water loss for red oak can be seen in Figure 7.6.  It should be noted that the blue channel contains a large amount of polarization after one week. In some cases, it has been seen to even exceed its 0-week counterpart. This may be due to the absorbance spectrum of chlorophyll and the lack of photosynthetic activity during decomposition. The overall S1 image shows the 0 week has higher polarization in S1 as its surface is more of a pure specular reflector.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_2/s1_polar.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/7_2_2/S1_polar_v2.png}}
     \end{center}
     \caption{Red Oak 0 weeks and 1 week observed in the specular direction for S1}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_2/s2_polar.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/7_2_2/S2_polar_v2.png}}
     \end{center}
     \caption{Red oak 0 weeks and 1 week observed in the specular direction for S2}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
 %
 Again S2 only shows a slight variation even after re-measuring the leaf one week later.
 
 The results of GLCM analysis for the P filter component can be found in Figure 7.8.  Visual inspection of the GLCM scatter plot shows the best clustering using the P filter for this particular example.  The full GLCM filter set can be found in the Appendix.
 %
-\begin{figure}[!htb]
+\begin{figure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_2/glcm_age_specular.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.375]{/Sources/Results/glcm/specular/0wk-1wk-P-filter-red-oak-rgb-specular.png}}
     \end{center}
     \caption{P filter GLCM dissimilarity and correlation in specular direction for 0 and 1 week.}
     \label{fig:polarization}
@@ -233,13 +233,13 @@ Our results show that although the mean is centered around zero for S1, the S2 c
 
 The diffuse portion of polarization for each species is shown in Figure 7.12.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_4/s1-polar.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/7_2_4/S1-polar-v2.png}}
     \end{center}
     \caption{All species, for the diffuse angle of observation 0 week for S1.}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
 %
 It can be seen that many of the leaves exhibit little to no S1 polarization.  This is expected since much of the S1 polarization results from single scatter surface level phenomena.  The polarization in S2 is shown to be significant.
 
@@ -247,19 +247,19 @@ The polarization can bee seen to be highest in the red and blue where absorption
 
 The distribution between species in S2 are distributed around different means and variances are as shown in Figure 7.13.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_4/S2_polar.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/7_2_4/S2_polar_v2.png}}
     \end{center}
     \caption{Polarization for all species in the diffuse direction of observation for S2.}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
 %
 A GLCM analysis in the diffuse direction for all species shows visually distinct clustering.  GLCM dissimilarity and correlation for diffuse scattering can be found in Figure 7.14.
 %
-\begin{figure}[!htb]
+\begin{figure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_4/glcm.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.375]{/Sources/Results/glcm/diffuse/V-filter-all-species-rgb-diffuse.png}}
     \end{center}
     \caption{V filter GLCM dissimilarity and correlation for all species in diffuse direction 0 weeks.}
     \label{fig:polarization}
@@ -282,23 +282,23 @@ The images above show that in the diffuse direction for Red Oak freshly removed,
 
 Figure 7.16 and Figure 7.17 show's the S1 and S2 polarization in the diffuse direction for a Red Oak leaf as it undergoes the decomposition.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_5/s1-polar.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/7_2_5/S1-polar-v2.png}}
     \end{center}
     \caption{Red Oak in the diffuse direction for S1}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
 %
 The S1 polarization component is low for both the fresh and decomposing leaf in the diffuse direction.  Most of the polarization that results is not purely perpendicular or parallel to the incident surface.  The S and P component of polarization are mostly cancelled out.
 %
-\begin{figure}[!htb]
+\begin{sidewaysfigure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_5/s2-polar.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.4]{/Sources/Results/7_2_5/S2-polar_v2.png}}
     \end{center}
     \caption{Red Oak in the diffuse direction for S2}
     \label{fig:polarization}
-\end{figure}
+\end{sidewaysfigure}
 %
 There is S2 polarization that arises from each specimen, and it is shown to be higher for red oak leaves that are undergoing the process of decomposition.
 
@@ -306,9 +306,9 @@ As the composition of a leaf changes, more polarization results as an effect of 
 
 The GLCM in the diffuse direction shows that as the wax structure becomes less filled with water and decompresses, the surface of the leaf appears smoother, since there is less noise caused by multiple scattering through the thicker wax cuticle of the fresh leaves.  The result is that healthier leaves create more dissimilarity for the captured images.  This is shown in Figure 7.18.
 %
-\begin{figure}[!htb]
+\begin{figure}
     \begin{center}
-        \makebox[\textwidth]{\includegraphics[scale=0.9]{/Sources/Results/7_2_5/glcm.png}}
+        \makebox[\textwidth]{\includegraphics[scale=0.375]{/Sources/Results/glcm/diffuse/0wk-1wk-P-filter-red-oak-rgb-diffuse.png}}
     \end{center}
     \caption{P filter GLCM dissimilarity and contrast in diffuse direction for red oak 0 week vs 1 week}
     \label{fig:polarization}
