@@ -9,7 +9,7 @@ Single scattering mechanisms create a portion of reflectance known as specular r
 
 Volume scattering occurs when light is absorbed by a material and is readmitted in all directions, including back towards the surface of the material.  They are denoted Type B photons.  Transmittance of this energy back into the first medium obeys the laws of Fresnel’s equations, although the indices of refraction are reversed.  This mechanism accounts for absorption and other higher level light matter interactions, not explained solely by Fresnel’s equations.
 
-Multiple scattering occurs when either Type A or Type B photons interact with the material surface more than once with either being reflected or re transmitted out of the material.  These are denoted Type C photons \cite{schott}.  Figure 2.7 shows each type of interaction.
+Multiple scattering occurs when either Type A or Type B photons interact with the material surface more than once while either being reflected or retransmitted out of the material.  These are denoted Type C photons \cite{schott}.  Figure 2.7 shows each type of interaction.
 %
 \begin{figure}
     \begin{center}
@@ -31,7 +31,7 @@ Surfaces that are perfectly smooth dielectrics are often considered to be purely
     \label{fig:scattering}
 \end{figure}
 %
-In simple models, rough surfaces can be viewed as purely diffuse reflectors that scatter incident light equally in all directions.  Perfect diffuse surfaces are known as Lambertian surfaces.  It has been assumed that the diffuse portion of light is unpolarized due to random nature of internal reflections \cite{specularclass}, \cite{grant}.
+In simple models, rough surfaces can be viewed as purely diffuse reflectors that scatter incident light equally in all directions.  Figure 2.8 shows a general example of both specular and diffuse surface scattering.  Perfect diffuse surfaces are known as Lambertian surfaces.  It has been assumed that the diffuse portion of light is unpolarized due to random nature of internal reflections \cite{specularclass}, \cite{grant}.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.7]{/Sources/Background/Nature_of_Light/brdf-simple.png}}
@@ -39,7 +39,7 @@ In simple models, rough surfaces can be viewed as purely diffuse reflectors that
     \caption{Simple BRDF Model}
     \label{fig:scattering}
 \end{figure}
-Bidirectional Reflectance Distribution Functions (BRDF) have been created to model the variety of surface interactions in order to handle the non ideal case of rough surfaces. BRDF defines how incident radiation is reflected off of opaque surfaces.  It is defined as a ratio of reflected radiance along path $\omega_r$ to incident irradiance $\omega_i$. A simple depiction of this scenario can be found in Figure 2.9.
+Bidirectional Reflectance Distribution Functions (BRDF) have been created to model the variety of surface interactions in order to handle the nonideal case where surface roughness is present. BRDFs define how incident radiation is reflected off of opaque surfaces.  It is defined as a ratio of reflected radiance along path $\omega_r$ to incident irradiance $\omega_i$. A simple depiction of this scenario can be found in Figure 2.9.
 
 The BRDF function is often defined in the form
 %
@@ -68,4 +68,4 @@ where $\rho$ is the surface albedo, or proportion of light reflected from a surf
     \label{fig:scattering}
 \end{figure}
 %
-The notion of a surface being rough, smooth, fine or coarse comes with the connotation of touch and the feeling of a materials' surface.  They are textures.
+The notion of a surface being rough, smooth, fine or coarse has been discussed from a perspective of polarized scattering mechanisms. These surface descriptions also come with a connotation of touch and the feel of a materials' surface.  They are textures.

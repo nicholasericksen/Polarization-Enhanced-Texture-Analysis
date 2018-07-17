@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %need subsub section on Jones
     % need subsub section on Devices
-For the special case of fully polarized EM waves, DOP = 1, the polarization of the beam can be described by a 2x1 complex vector known as a Jones vector.  The Jones vector relies on the fact that the polarization state of a beam depends only on its relative $x$ and $y$ intensities, as well as the phase delay between each respective component.
+For the special case of fully polarized EM waves, DOP = 1, the polarization of the beam can be described by a 2x1 complex vector known as a Jones vector.  The Jones vector relies on the fact that the polarization state of a fully polarized beam depends only on its relative $x$ and $y$ intensities, as well as the phase delay between each respective component.
 
 Converting the equation for the electric component of the EM wave into a phasor makes it easy to see the parameters that determine the beam's polarization.  A phasor represents a sinusoidal wave with a constant frequency.  The Jones vectors can be formulated from this representation as
 %
@@ -11,7 +11,7 @@ Converting the equation for the electric component of the EM wave into a phasor 
     \underline{\hat{E}}(z)=(\vec{i_x} E_{0x} e^{j\delta_x}+\vec{i_y} E_{0y} e^{j\delta_y })e^{-kz}
 \end{align}
 %
-since the polarization depends on the amplitude and phase difference of the $X$ and $Y$ components, the Jones vector is formally written as
+since the polarization depends on the amplitude and phase difference of the $x$ and $y$ components, the Jones vector is formally written as
 %
 \begin{align}
     \underline{J} =
@@ -38,7 +38,7 @@ An angle can then be defined such that
     tan(\psi) = \frac{E_{0y}}{E_{0x}}
 \end{align}
 %
-The Jones vector can then be written in terms of a single angle
+The Jones vector can then be written as
 %
 \begin{align}
     \underline{J_{\delta}}(\psi) =
@@ -114,8 +114,8 @@ Since linear polarizers block light that is orthogonal to the TA, it can be show
 \begin{align}
     \underline{J}_{in}(\psi + \frac{\pi}{2}) =
     \begin{pmatrix}
-        cos(\psi + \frac{pi}{2}) \\
-        sin(\psi + \frac{pi}{2})
+        cos(\psi + \frac{\pi}{2}) \\
+        sin(\psi + \frac{\pi}{2})
     \end{pmatrix}
     =
     \begin{pmatrix}
@@ -221,7 +221,7 @@ Wave plates create a phase delay between the fast and slow axis of incident line
 %
 Two common wave plates are the half wave plate and the quarter wave plate.  These produce a delay of $\pi$ and $\pi/2$ respectively.
 
-The noobelectric python package has a module for dealing with these types of problems and it automates Jones optical calculations for purely polarized light beams.  An example for a linear polarizer combined with a quarter wave plate can be created and various input polarization states into the system as shown below.
+The noobelectric Python package has a module for dealing with these types of problems and it automates Jones optical calculations for purely polarized light beams.  An example for a linear polarizer combined with a quarter wave plate can be created and various input polarization states into the system as shown below.
 \begin{figure}
     \begin{lstlisting}
         >>> from noobee.jones import j, lp

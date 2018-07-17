@@ -12,9 +12,9 @@
 \end{center}
 
 \section{Support Vector Machines}
-A Support Vector Machine (SVM) is binary classification tool that is used in machine learning classification and regression problems.  SVMs attempt to separate data by creating a hyperplane that maximizes the distance between each of the classes.  This is often performed in high dimensional spaces, where each sample is described by multiple features.
+A Support Vector Machine (SVM) is a binary classification tool that is used in machine learning classification and regression problems.  SVMs attempt to separate data by creating a hyperplane that maximizes the distance between each of the classes.  This is often performed in high dimensional spaces, where each sample is described by multiple features.
 
-The python package Sci-Kit Learn provides access to SVM modules and utilities that make it easy to run analysis on datasets.  This package allows for easily performing machine learning classification and cross validation.  Pipelines are useful for streamlining any preprocessing steps before classification.  This allows for easy modification and testing of various steps in the machine learning process.  A pipeline can be utilized in order to allow for easy access to the classifier processing steps during analysis such as,
+The Python package Sci-Kit Learn provides access to SVM modules and utilities that make it easy to run analysis on datasets.  This package allows for easily performing machine learning classification and cross validation.  Pipelines are useful for streamlining any preprocessing steps before classification.  This allows for easy modification and testing of various steps in the machine learning process.  A pipeline can be utilized in order to allow for easy access to the classifier processing steps during analysis such as,
 %
 \begin{figure}
     \begin{lstlisting}
@@ -33,7 +33,7 @@ The python package Sci-Kit Learn provides access to SVM modules and utilities th
 %
 The OneVsRestClassifier was used to extend binary classification methods to multiclass problems, allowing for the use of SVC to classify Red Oak, American Ash and Sugar Maple leaves.  The chosen kernel was linear.  The GridSearch module of sklearn can additionally be utilized to find the most optimal parameters for fitting the data, when free parameters are available.
 
-In Support vector classification, the C and epsilon are tunable parameters that describe the penalty for support vectors inside of the margin of separation.
+In Support vector classification, the C and epsilon are tunable parameters that describe the penalty for support vectors inside the margin of separation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Validation of Classifier Results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,7 +41,7 @@ Cross validation of results is important for reducing the training and testing b
 
 A stratified K-fold validation can be used for ensuring that when sets of training and testing are created, the testing sets contain equal amounts of each class.  This is especially useful in unequally distributed sets of data.
 
-In binary classification problems, it is of interest to understand the ability of a classifier to correctly predict the true condition of the sample under inspection.  The possible outcomes of a classification can be found in Figure 6.2.
+In binary classification problems, it is of interest to understand the ability of a classifier to correctly predict the true condition of the sample under inspection.  The possible outcomes of a classification attempt can be found in Figure 6.2.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.6]{/Sources/Classification_Regression/ROC.png}}
@@ -73,7 +73,6 @@ The classification report shows a useful cross validated summary of the precisio
 
 All of these features are available in the Sklearn package and an example is shown below.
 %
-
 %
 \begin{figure}
     \begin{lstlisting}
@@ -95,24 +94,24 @@ All of these features are available in the Sklearn package and an example is sho
 \end{figure}
 These metrics are often visualized using receiver operating characteristic (ROC) curves for binary classification and confusion matrices for multi-class problems.  ROC curves show the sensitivity vs the specificity of a binary classifier by plotting the false positive rate versus the true positive rate.  It “is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied” \cite{wikiroc}. The area under the ROC curve, often denoted AUC, is a measure equivalent to the score of a classifier. It should be noted that for multi-class problems, ROC curves can be more optimistic than the individual performance metrics.
 
-ROCs can be extended to multi-class problems by using a so called One-Vs-Many technique, although a confusion matrix is often used to show the accuracy of a classifier between each of the various classes.  A mutli-class ROC curve would show each class in prediction to all other classes, therefore still becoming a binary decision.  A confusion matrix shows the classifier score against each combination of true value and predicted value.  It therefore shows all outcomes of classification.
+ROCs can be extended to multi-class problems by using a so called One-Vs-Many technique, although a confusion matrix is often used to show the accuracy of a classifier between each of the various classes.  A mutli-class ROC curve would show each class in prediction to all other classes, therefore still becoming a binary decision.  A confusion matrix shows the classifier score against each combination of true value and predicted value.  It is able to show all outcomes of classification.
 
 It is important to understand the bias and variance of a model when determining its overall effectiveness.  The bias is the average error for different training sets while the variance indicates how sensitive a model is to varying training sets.
 
-Learning curves are a useful visualization tool for understanding the bias and variance of a classification model.  It is useful for determining if a model gets better at classifying samples, as the number of training samples increases.  If the score of a classifier decreases as the number of samples increases, the model has a high amount of bias.  The model performance is not generalized enough to handle more training data.  If, as the number of training samples increases, the score increases, the model could benefit from more training data.  If the score remains constant as the training samples increase, the model has low bias.
+Learning curves are a useful visualization tool for understanding the bias and variance of a classification model.  It is useful for determining if a model gets better at classifying samples as the number of training samples increases.  If the score of a classifier decreases as the number of samples increases, the model has a high amount of bias.  The model performance is not generalized enough to handle more training data.  If, as the number of training samples increases, the score increases, the model could benefit from more training data.  If the score remains constant as the training samples increase, the model has low bias.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Linear Regression}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-A linear regression is a simple approach to supervised learning that has long been in use in the field of statistical learning.  It provides the ability to predict a quantitative response $Y$ given a predictor variable $X$.  The assumption when using this technique is that the relationship between these two variables is linear.  In general the form of a Simple Linear Regression is
+A linear regressions have long been in use in the field of statistical and supervised learning.  They provide the ability to predict quantitative responses, $Y$, when $X$ is a set of inputs.  The assumption when using this technique is that the relationship between these two variables is linear.  In general the form of a Simple Linear Regression is
 %
 \begin{align}
     Y = \beta_0 + \beta_1 X
 \end{align}
 %
-where $\beta_0$ and $\beta_1$ are parameters that are calculated using a set of training data.  Once trained, this model can predict future output values for a given input.  When given a set of observations, $\beta_0$ and $\beta_1$ are calculated in order to have a closeness between the predicted line and the actual observed data.  A common measure of this closeness is the least squares error.
+where $\beta_0$ and $\beta_1$ are parameters that are calculated using a set of training data and represent the intercept and slope of the regression.  Once trained, this model can predict future output values for a given input.  When given a set of observations, $\beta_0$ and $\beta_1$ are calculated in order to have a closeness between the predicted line and the observed data.  A common measure of this closeness is the least squares error.
 
 The residual, $e$, for a given set of observations is calculated as
 %
@@ -120,7 +119,7 @@ The residual, $e$, for a given set of observations is calculated as
     e_i = y_i - \hat{y_i}
 \end{align}
 %
-These residuals can be used to calculate the Residual Sum of Squares \(RSS\), or the amount of variation left unexplained after performing the regression.  It is
+where $\hat{y_i}$ are the predicted outputs. These residuals can be used to calculate the Residual Sum of Squares \(RSS\), or the amount of variation left unexplained after performing the regression.  It is
 \begin{align}
     RSS = {e_1}^2 + {e_2}^2 + \cdots\ + {e_n}^2
 \end{align}

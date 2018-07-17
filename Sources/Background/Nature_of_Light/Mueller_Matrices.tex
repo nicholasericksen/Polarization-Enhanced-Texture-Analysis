@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mueller Matrices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Interactions with materials that can create depolarization and model partially polarized input and outputs cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with equation and shown in Figure 2.4.
+Interactions with materials that can create depolarization and partially polarized states cannot be handled by Jones calculus.  For these problems, Mueller Matrices are used to model the polarization of light with varying degrees of polarization as it interacts with a material.  These interactions are modeled with equation $2.57$ and shown in Figure 2.5.
 \begin{align}
     \mathbf{S}_{out} = \mathbf{M}\mathbf{S}_{in}
 \end{align}
@@ -91,6 +91,30 @@ The effects of diattenuation, depolarization and retardance can be found to be r
         \mathbf{P} & \mathbf{m}
     \end{bmatrix}
 \end{align}
-The derivation of the MM decomposition was made known by Lu and Chipman and is reproduced in \cite{polarizedlight}. $\mathbf{D}^T$ is the diattenutation vector that describes the attenuation for each set of orthogonal polarization states. The $\mathbf{m}$ matrix represents the retardance of a material.
-
+The derivation of the MM decomposition was made known by Lu and Chipman and is reproduced in \cite{polarizedlight}. $\mathbf{D}^T$ is the diattenutation vector that describes the attenuation for each set of orthogonal polarization states. The $\mathbf{m}$ matrix represents the retardance of a material. Substituting unpolarized light into equation 2.55 results in
+%
+\begin{align}
+    \mathbf{S}_{out} =
+    \begin{bmatrix}
+            m_{00} & m_{01} & m_{02} & m_{03} \\
+            m_{10} & m_{11} & m_{12} & m_{13} \\
+            m_{20} & m_{21} & m_{22} & m_{23} \\
+            m_{30} & m_{31} & m_{32} & m_{33}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 \\
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        m_{00} \\
+        m_{10} \\
+        m_{20} \\
+        m_{30}
+    \end{bmatrix}
+\end{align}
+%
+%
 $\mathbf{P}$ is the polarizance vector, and describes the amount of light that becomes polarized when unpolarized light is incident.  It is analogous to the effect of depolarization.  This vector can be measured by detecting the output Stokes vector of a material when unpolarized light is incident.  This effect is only evident in materials that create polarization.

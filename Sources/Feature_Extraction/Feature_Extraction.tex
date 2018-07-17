@@ -13,7 +13,7 @@
 
 After acquiring the necessary images for calculation of a leafs' polarizance, features were extracted from the images in each color channel for texture and polarization analysis.  These features were extracted using various Python programming modules. One hundred samples were extracted from each image to randomly create a training and testing set of data.  Diffuse and specular datasets were processed separately.
 
-In order to create testing and training data, samples were extracted from each polarization image $H, V, P$ and $M$ using code found in Figure 5.1.  Each sample was extracted into three different color channels; red, green and blue.
+In order to create testing and training data, samples were extracted from each polarization filtered image ($H, V, P$ and $M$) using code found in Figure 5.1.  Each sample was extracted into three different color channels; red, green and blue.
 
 \begin{figure}
     \begin{lstlisting}
@@ -39,7 +39,7 @@ In order to create testing and training data, samples were extracted from each p
     \label{fig:scattering}
 \end{figure}
 
-This type of function mentioned in Figure 5.1 can be used to extract sample patches from all three (BGR) color channels. Features can then be extracted from each of the color samples.  An example grey level histogram and image for each individual color channel through an H polarization filter can be found in Figures 5.2, 5.3 and 5.4.
+This type of function mentioned in Figure 5.1 can be used to extract sample patches from all three (BGR) color channels. Features can then be extracted from each of the color samples.  The features under consideration here were the polarimetric polarizance and textual GLCM calculations.   An example grey level histogram and image for each individual color channel through an H polarization filter can be found in Figures 5.2, 5.3 and 5.4.  This can serve as a reference as the full dataset can be found online in \cite{noob}.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.35]{/Sources/Feature_Extraction/di-H-blue-sample-hist.png}}
@@ -83,7 +83,7 @@ The corresponding V filter channels are found in Figures 5.5, 5.6 and 5.7 for a 
     \caption{Devils Ivy Red Channel V Filter Histogram}
     \label{fig:polarization}
 \end{figure}
-Each of the samples were processed using pixel based analysis, to calculate their Stokes vector as well as various GLCM metrics.  Pixels that were never illuminated were filtered out of the polarization analysis since they artificially inflated the zero mean of the produced histograms.  Polarization is not the same as light intensity and polarization cannot be determined without some illumination on the target.  The Stokes vector was calculated using the code in Figure 5.8 where P1 and P2 represent orthogonal flux measurements through a linear polarizer.
+Each of the samples were processed using pixel based analysis, to calculate their Stokes vector as well as various GLCM metrics.  Pixels that were never illuminated were filtered out of the polarization analysis since they artificially inflated the zero mean of the produced histograms.  Polarization is not the same as light intensity and polarization cannot be determined without some illumination on the target.  The Stokes vector was calculated using the code in Figure 5.8 where $P_1$ and $P_2$ represent orthogonal flux measurements through a linear polarizer.
 %
 \begin{figure}
     \begin{lstlisting}
@@ -133,7 +133,7 @@ These values were binned into histograms in order to reduce the dimensionality a
     \label{fig:scattering}
 \end{figure}
 %
-The resulting polarization histograms for a Devils Ivy sample can be found in Figure 5.10 for each corresponding BGR channel.  A false image has also been included which shows the absolute value of the S1 polarization for each channel and location on the original image.  The result of creating a false image out of the a polarization matrix, allows for a visualization for how polarization is resulting from specific surface and subsurface features.
+The resulting polarization histograms for a Devils Ivy sample can be found in Figure 5.10 for each corresponding BGR channel.  A false image has also been included which shows the absolute value of the $S_1$ polarization for each channel and location on the original image.  The result of creating a false image out of the a polarization matrix, allows for a visualization for how polarization is resulting from specific surface and subsurface features.
 \begin{figure}
     \begin{center}
         \makebox[\textwidth]{\includegraphics[scale=0.35]{/Sources/Feature_Extraction/di-bgr-s1-v2.png}}
@@ -174,5 +174,5 @@ In addition to performing a polarization based analysis on each color channel of
     \caption{Code to Extract GLCM Features From Texture Samples}
     \label{fig:scattering}
 \end{figure}
-The metrics derived from the GLCM matrix can be plotted in various scatterplots as demonstrated in the Results chapter and Appendix. Data was exported to .csv files for future processing and analysis in Support Vector Machine classification and linear regression.
+The metrics derived from the GLCM matrix can be plotted in various scatterplots as demonstrated in the Results chapter and Appendix. Data was exported to .csv files for future processing and analysis using Support Vector Machine classification and linear regression techniques.
 Pixel-based, histogram counts and GLCM derived, window-based metrics were combined to form feature vector sets in the classification and regressions given in Chapter 7.

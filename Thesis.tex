@@ -34,11 +34,23 @@
 %%%%%%%%%%
 \newcommand{\namesigdate}[2][5cm]{%
   \begin{tabular}{@{}p{#1}@{}}
-    #2 \\[\normalbaselineskip] \hrule \\[0pt]
-    {\small \textit{Signature}} \\[\normalbaselineskip] \hrule \\[0pt]
+    #2 \\[\normalbaselineskip] \hrule
+    {\small \textit{Signature}}
+    \\[\normalbaselineskip] \hrule
     {\small \textit{Date}}
+    \\[\normalbaselineskip]
   \end{tabular}
 }
+%%%%%%%%%%%%%%%%
+% Appendix Heading
+%%%%%%%%%%%%%%%
+\newcommand{\unchapter}[1]{%
+  \begingroup
+  \let\@makechapterhead\@gobble % make \@makechapterhead do nothing
+  \chapter{#1}
+  \endgroup
+}
+%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperlinks & bookmarks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,7 +132,7 @@
 \newacronym     {RWC}{RWC}{Relative Water Content}
 \newacronym     {NDVI}{NDVI}{Normalized Difference Vegetation Index}
 \newacronym     {NIR}{NIR}{Near infrared}
-\newacronym     {VARI}{VARI}{Visible Atmospherically Re- sistant Index}
+\newacronym     {VARI}{VARI}{Visible Atmospherically Resistant Index}
 \newacronym     {FW}{FW}{Fresh weight}
 \newacronym     {TW}{TW}{Turgid weight}
 \newacronym     {DW}{DW}{Dry weight}

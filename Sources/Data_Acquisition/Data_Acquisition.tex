@@ -11,7 +11,7 @@
   \vspace{0.5cm}
 \end{center}
 
-Images were acquired using a digital microscope through various polarization filter arrangements to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low, 0.02 \text{\%}. The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  In real world applications any ambient light should be accounted for using radiometric calibration techniques or other correction methods.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
+Images were acquired using a digital microscope through various polarization filter arrangements in order to determine each materials polarization and texture properties.  A broadband white light source was utilized to illuminate the target under investigation.  The DOP of the light source was found to be low, 0.02 \text{\%}. The lights within the room were turned off during data acquisition to reduce the amount of ambient light noise.  In real world applications any ambient light should be accounted for using radiometric calibration techniques or other correction methods.  A custom web application was created to capture, label and store images for easy access and processing.  The acquired data and processing code can be found in \cite{noob}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Measurement of Stokes Parameters}
@@ -29,16 +29,16 @@ It is shown in \cite{chipman} that the Stokes parameter of a beam can be general
         S_3
     \end{bmatrix}
     =
-    S_0
     \begin{bmatrix}
         P_H + P_V \\
         P_H - P_V \\
         P_P - P_M \\
         P_R - P_L
     \end{bmatrix}
+    \frac{watts}{m^2}
 \end{align}
 %
-where $P_H, P_V, P_P, P_M, P_R$ and $P_L$ represent flux measurements recorded through filters that extinguish orthogonal polarization states.
+where $P_H, P_V, P_P, P_M, P_R$ and $P_L$ represent flux measurements recorded through filters that extinguish orthogonal polarization states. This is a discrete polarimetric measurement and calculation.
 
 For most natural and man made objects, the reflections are assumed to contain little or no circular polarization. The last row of the Stokes vector is therefore left out of the discussion and the equation becomes
 %
@@ -58,7 +58,7 @@ For most natural and man made objects, the reflections are assumed to contain li
     \end{bmatrix}
 \end{align}
 %
-The linear elements of the Stokes vector can be determined using just a linear polarizer and rotating the polarizer to 0, 45 90 and 135 degrees.  These measurements are denoted $P_H, P_P, P_V,$ and $P_M$. They are the captured time average intensities for the $S$ and $P$ components of the electric field previously described.
+The linear elements of the Stokes vector can be determined using just a linear polarizer and rotating the polarizer to 0, 45, 90 and 135 degrees.  These measurements are denoted $P_H, P_P, P_V$ and $P_M$. They represent the captured time average intensities for the $S$ and $P$ components of the electric field previously described in section $2.1.4$.
 %
 %ßß\begin{center}
 %  \makebox[\textwidth]{\includegraphics[width=8cm]{Sources/Background/Data_Acquisition/exper_setup.png}}
@@ -73,14 +73,14 @@ The linear polarizer was calibrated using a polarizer of known axis orientation.
     \caption{Polarizer Characteristic from Edmund Optics}
     \label{fig:polarization}
 \end{figure}
-When unpolarized light is incident, the Stokes vector for the exiting beam is identical to the polarizance of the Mueller matrix for the material and can be useful for classification of materials.
+When unpolarized light is incident, the Stokes vector for the exiting beam is identical to the polarizance of the Mueller matrix for the material and can be useful for classification of materials.  This reduction in form was shown in Equation 2.64.
 
-The intensity measurement is recorded with a detector.
+The intensity measurement is recorded with a USB powered, digital microscope acting as a detector.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Single and Multi-Pixel Detectors}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-For centuries the only photo detector available to those in the field of optics was the human eye.  Many methods were only capable of producing measurements via a null intensity method, where light was extinguished to determine orthogonality between polarization and polarizer transmission axes.  Modern single pixel photo detectors allow for the capturing of intensity or tone.  There are numerous types of detectors available made with different materials that exhibit different properties when interacting with light.  Silicon is a common substrate.
+For centuries the only photo detector available to those in the field of optics was the human eye.  Many methods were only capable of producing measurements via a null intensity method, where light was extinguished to determine orthogonality between polarization and polarizer transmission axes.  Modern single pixel photo detectors allow for the capturing of intensity or tone.  There are numerous types of detectors available which are made from materials that exhibit different properties when interacting with light.  Silicon is a common substrate.
 
 A single pixel is not enough to capture texture.  Multiple measurements need to be made using a single pixel in order to quantify a region of space around the surface, denoted by the units of steradians in the BRDF models.  Multi-pixel detectors with a larger field of view allow for multiple features and texture to be captured in an image.
 
@@ -93,18 +93,18 @@ A camera is made up of a pattern of multiple silicon photodetectors and filters.
     \label{fig:polarization}
 \end{figure}
 %
-The individual intensities from each of these filters are combined with the camera to create a three-channel RGB representation of the image scene.  Each channel represents the intensity of a given pixel for the color filter in the Bayer pattern.
+The individual intensities from each of these filters are captured by the camera and used to create a three-channel RGB representation of the image scene.  Each channel represents the intensity of a given pixel for the color filter in the Bayer pattern.
 
-Single and multi-pixel devices have been utilized in Polarimetry for different applications.  A camera was utilized for these experiments as it provides information on texture as well as an ability to distinguish features in each of the spectral color channels.
+Single and multi-pixel devices have been utilized in Polarimetry for different applications.  In these experiments a digital microscope was used as it provides information on texture as well as an ability to distinguish features in each of the spectral color channels.
 
-The intensity values for each RGB channel of an image can easily be extracted using the OpenCV python package.  Note that OpenCV actually holds images in reverse order as BGR.
+The intensity values for each RGB channel of an image can easily be extracted using the OpenCV Python package.  Note that OpenCV actually holds images in reverse order as BGR.
 
 OpenCV, a popular image processing library in Python, stores images as intensities in a multidimensional array representing the blue, green, and red response patterns.  It is possible to separate these channels and access the discrete intensity values to perform a pseudo-spectral analysis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Determining Relative Water Content}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The steps for determining the RWC involve weighing the leaf in its current water state, artificially hydrating the leaf to its maximum capacity and completely drying out the leaf.  The procedure for obtaining the measurements necessary for obtaining the RWC are as follows \cite{ecophysiology},\cite{rwc:1}],
+The steps for determining the RWC involve weighing the leaf in its current water state, artificially hydrating the leaf to its maximum capacity and completely drying out the leaf.  The procedure for obtaining the measurements necessary for obtaining the RWC are as follows \cite{ecophysiology},\cite{rwc:1},
 
 1.	Remove leaf from host plant leaving approximately 2 cm of petiole
 
